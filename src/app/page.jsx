@@ -1,85 +1,130 @@
-import { FloatingNav } from "@/components/FloatingNav";
-import { Footer } from "@/components/Footer";
-import { SiteCard } from "@/components/SiteCard";
-import { CategoryFilter } from "@/components/CategoryFilter";
-import { sites } from "@/lib/data";
+"use client";
 
-export default async function Home(props) {
-  const searchParams = await props.searchParams;
-  const activeCategory = searchParams?.category || "All";
-  const searchQuery = searchParams?.q || "";
+import Link from "next/link";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { IconArrowRight, IconSparkles, IconBolt } from "@tabler/icons-react";
 
-  let filteredSites =
-    activeCategory === "All"
-      ? sites
-      : sites.filter((site) => site.category === activeCategory);
+const features = [
+  {
+    title: "Curated Quality",
+    description:
+      "Every library and tool is hand-tested to ensure it meets modern design standards before being added to the directory.",
+    icon: IconSparkles,
+  },
+  {
+    title: "Fast Workflow",
+    description:
+      "Stop endlessly bookmarking. Start building. Find the exact tools you need instantly with our categorized search.",
+    icon: IconBolt,
+  },
+];
 
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase();
-    filteredSites = filteredSites.filter(
-      (site) =>
-        site.name.toLowerCase().includes(q) ||
-        site.description.toLowerCase().includes(q),
-    );
-  }
-
+export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden bg-background">
-      <FloatingNav />
-
+    <main className="min-h-screen relative bg-background">
       {/* Hero Section */}
-      <section className="pt-40 pb-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="font-heading text-5xl md:text-7xl font-medium tracking-tight text-primary leading-[1.1]">
-            Curated resources for the modern web.
-          </h1>
-          <p className="text-lg md:text-xl text-primary font-[450] opacity-80 max-w-2xl mx-auto leading-relaxed">
-            A handpicked collection of UI libraries, design systems, and
-            typography inspiration. Everything you need to build beautiful
-            interfaces.
-          </p>
-        </div>
-      </section>
+      <section className="relative h-[100dvh] flex flex-col items-center justify-between pt-28 pb-8 px-6 md:px-12 max-w-[1400px] mx-auto z-10 overflow-hidden">
+        <div className="flex-1 flex flex-col justify-center w-full items-center">
+          <Badge
+            variant="outline"
+            className="mb-6 py-1.5 px-4 rounded-full border-primary/20 bg-primary/5 text-primary gap-1.5 animate-fade-in"
+          >
+            <IconSparkles size={14} className="text-[#F37338]" />
+            <span>A new direction for curation</span>
+          </Badge>
 
-      {/* Categories & Directory */}
-      <section className="px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 min-h-[50vh]">
-        <div className="mb-16 flex justify-center sticky top-28 z-40">
-          <div className="bg-background/80 backdrop-blur-xl py-4 rounded-full px-2 border border-border/40 shadow-[0px_8px_32px_rgba(0,0,0,0.04)] dark:shadow-none">
-            <CategoryFilter />
-          </div>
-        </div>
+          <div className="text-center mb-8 md:mb-12">
+            <h1 className="font-heading text-5xl md:text-[5.5rem] font-medium tracking-tighter text-primary leading-[1.05] mb-4">
+              The curated directory
+              <br className="hidden md:block" /> for the modern web.
+            </h1>
 
-        {filteredSites.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-32 text-center">
-            <h3 className="font-heading text-2xl font-medium text-primary mb-4">
-              No sites found
-            </h3>
-            <p className="text-muted-foreground">
-              Try selecting a different category.
+            <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
+              Discover a handpicked collection of UI libraries, design systems,
+              and beautiful interfaces. Built for designers and developers.
             </p>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-24 md:gap-y-32">
-            {filteredSites.map((site, index) => (
-              <div
-                key={site.url}
-                className={`flex justify-center ${index % 3 === 1 ? "md:translate-y-16 lg:translate-y-24" : ""} ${index % 3 === 2 ? "lg:translate-y-12" : ""}`}
-              >
-                <SiteCard site={site} />
-              </div>
-            ))}
-          </div>
-        )}
+
+          <HeroCarousel />
+        </div>
       </section>
 
-      {/* Background Ghost Text */}
-      <div className="fixed top-1/4 left-0 w-full overflow-hidden -z-0 pointer-events-none select-none flex justify-center opacity-40 dark:opacity-10">
-        <span className="font-heading text-[15vw] font-medium tracking-tighter text-primary/10 whitespace-nowrap">
-          DIRECTORY
-        </span>
-      </div>
+      {/* About Section */}
+      <section
+        id="about"
+        className="py-24 md:py-32 px-6 md:px-16 bg-[#141413] text-white rounded-[40px] md:rounded-[80px] mt-12 mb-12 max-w-[1400px] mx-auto relative z-20"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight">
+              Why Dir<span className="text-[#F37338]">.</span> exists.
+            </h2>
 
-      <Footer />
+            <div className="space-y-6 text-lg md:text-xl text-[#F3F0EE]/80 leading-relaxed">
+              <p>
+                We were tired of scouring the web for high-quality, modern
+                components that fit today's design standards.
+              </p>
+
+              <p>
+                Dir. is a continually updated, meticulously curated directory of
+                tools, libraries, and design inspiration to help you build
+                exceptional products faster.
+              </p>
+            </div>
+
+            <div className="pt-4">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-white text-[#141413] hover:bg-[#F3F0EE] transition-all hover:scale-105 px-8 py-6 text-lg font-medium group shadow-xl shadow-white/5"
+              >
+                <Link href="/list">
+                  Browse Directory
+                  <IconArrowRight
+                    className="ml-2 group-hover:translate-x-1 transition-transform"
+                    size={20}
+                  />
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+            {features.map((feature) => {
+              const Icon = feature.icon;
+
+              return (
+                <Card
+                  key={feature.title}
+                  className="bg-white/5 border-white/10 p-4 rounded-4xl text-white hover:bg-white/10 transition-colors duration-300 shadow-none"
+                >
+                  <CardHeader>
+                    <div className="h-12 w-12 bg-white/10 rounded-full flex items-center justify-center text-[#F37338] mb-2">
+                      <Icon size={24} />
+                    </div>
+
+                    <CardTitle className="text-xl font-heading font-medium tracking-tight">
+                      {feature.title}
+                    </CardTitle>
+                  </CardHeader>
+
+                  <CardContent>
+                    <p className="text-[#F3F0EE]/70 text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

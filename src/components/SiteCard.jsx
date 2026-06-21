@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,6 +39,13 @@ export function SiteCard({ site }) {
               onError={() => setHasError(true)}
             />
           )}
+        </div>
+
+        {/* Category Badge */}
+        <div className="absolute top-4 left-4 z-20">
+          <span className="px-3 py-1 text-xs font-medium bg-background/90 backdrop-blur-md text-primary rounded-full shadow-sm border border-border/50">
+            {site.category}
+          </span>
         </div>
 
         {/* Satellite CTA */}

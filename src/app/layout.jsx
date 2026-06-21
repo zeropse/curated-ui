@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provicer";
 import { cn } from "@/lib/utils";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Footer } from "@/components/Footer";
+import { FloatingNav } from "@/components/FloatingNav";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const interTight = Inter_Tight({
@@ -31,7 +33,11 @@ export default function RootLayout({ children }) {
           enableSystem={false}
           disableTransitionOnChange
         >
-          <NuqsAdapter>{children}</NuqsAdapter>
+          <NuqsAdapter>
+            <FloatingNav />
+            {children}
+            <Footer />
+          </NuqsAdapter>
         </ThemeProvider>
       </body>
     </html>
