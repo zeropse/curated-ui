@@ -77,7 +77,7 @@ export function HeroCarousel() {
           direction="left"
           autoPlay
           autoPlayInterval={1000}
-          debug={debug}
+          // debug={debug}
           enableDrag
           perspective={1200}
         />
