@@ -2,17 +2,7 @@
 
 Before implementing any feature, modification, refactor, or architectural decision, always consult and apply the following resources in order of priority:
 
-### 1. Project-Specific Design System
-
-- `DESIGN.md`
-- This is the primary source of truth for:
-  - Visual design
-  - UX patterns
-  - Component styling
-  - Layout decisions
-  - Brand consistency
-
-### 2. Next.js Architecture & Development
+### 1. Next.js Architecture & Development
 
 Always use:
 
@@ -20,7 +10,6 @@ Always use:
 - `next-best-practices`
 - `vercel-react-best-practices`
 - `vercel-composition-patterns`
-- `next-cache-components`
 
 Apply these resources for:
 
@@ -35,7 +24,7 @@ Apply these resources for:
 - Accessibility
 - Code structure
 
-### 3. UI Components
+### 2. UI Components
 
 Always use:
 
@@ -45,10 +34,10 @@ Requirements:
 
 - Prefer existing shadcn/ui components over custom implementations.
 - Extend existing components before creating new ones.
-- Maintain consistency with the project's design system.
+- Maintain consistency across the application.
 - Ensure accessibility standards are preserved.
 
-### 4. Styling
+### 3. Styling
 
 Always use:
 
@@ -58,9 +47,8 @@ Requirements:
 
 - Follow Tailwind CSS v4 conventions.
 - Avoid custom CSS when Tailwind utilities can achieve the same result.
-- Use design tokens and semantic styling patterns defined in `DESIGN.md`.
 
-### 5. Design & UX Standards
+### 4. Design & UX Standards
 
 Always use:
 

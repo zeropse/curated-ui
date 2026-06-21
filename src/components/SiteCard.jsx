@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { Skeleton } from "./ui/skeleton";
 import {
@@ -51,13 +52,15 @@ export function SiteCard({ site }) {
               {site.name.substring(0, 2).toUpperCase()}
             </div>
           ) : (
-            <img
+            <Image
               src={`https://api.microlink.io/?url=${encodeURIComponent(
                 site.url,
               )}&screenshot=true&meta=false&embed=screenshot.url`}
               alt={site.name}
+              fill
+              unoptimized={false}
               className={cn(
-                "h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105",
+                "object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105",
                 imageLoaded ? "opacity-100" : "opacity-0",
               )}
               onLoad={() => setImageLoaded(true)}

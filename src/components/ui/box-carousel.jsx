@@ -18,6 +18,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const CubeFace = memo(({ transform, className, children, style, debug }) => (
@@ -53,12 +54,14 @@ const MediaRenderer = memo(({ item, className, debug = false }) => {
       );
     }
     return (
-      <img
+      <Image
         src={item.src}
         alt={item.alt || ""}
         draggable={false}
+        fill
+        unoptimized={false}
         className={cn(
-          "w-full h-full object-cover border border-border/50 bg-muted/20",
+          "object-cover border border-border/50 bg-muted/20",
           className,
         )}
       />

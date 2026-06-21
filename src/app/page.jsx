@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Button } from "@/components/ui/button";
