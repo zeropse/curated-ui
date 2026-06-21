@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import BoxCarousel from "@/components/ui/box-carousel";
 import useScreenSize from "@/hooks/use-screen-size";
-import { sites } from "@/lib/data";
+import { sites } from "@/content/data";
 /* import { IconBug, IconBugOff } from "@tabler/icons-react"; */
 
 const carouselItems = sites.map((site, index) => ({

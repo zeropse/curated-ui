@@ -3,7 +3,7 @@
 import { SiteCard } from "@/components/SiteCard";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { sites, categories } from "@/lib/data";
+import { sites, categories } from "@/content/data";
 import { useQueryState } from "nuqs";
 import { IconSearch } from "@tabler/icons-react";
 
