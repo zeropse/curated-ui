@@ -26,7 +26,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[100dvh] flex flex-col items-center justify-between pt-28 pb-8 px-6 md:px-12 max-w-[1400px] mx-auto z-10 overflow-hidden">
         <div className="flex-1 flex flex-col justify-center w-full items-center">
-          <Badge className="mb-6 py-1.5 px-4 rounded-full border-primary/20 bg-primary/5 text-primary gap-1.5 animate-fade-in">
+          <Badge className="mb-6 p-3 rounded-full border-primary/20 bg-primary/5 text-primary gap-1.5 animate-fade-in">
             <IconSparkles
               size={14}
               className="text-[#F37338]"
