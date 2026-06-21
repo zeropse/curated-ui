@@ -4,7 +4,7 @@ import Link from "next/link";
 import {
   IconHelp,
   IconPlus,
-  IconEdit,
+  IconBug,
   IconBrandGithub,
   IconBrandX,
   IconBrandLinkedin,
@@ -18,28 +18,22 @@ const linkClass =
 
 const sections = [
   {
-    title: "Need Help?",
+    title: "Community",
     links: [
       {
         href: "/faq",
         label: "FAQ",
         icon: <IconHelp size={16} aria-hidden="true" />,
       },
-    ],
-  },
-
-  {
-    title: "Submit",
-    links: [
       {
-        href: "https://github.com/zeropse/ui-zeropse/issues/new?title=Add%20Site:%20[Site%20Name]&labels=enhancement&body=URL:%0ADescription:",
+        href: "https://github.com/zeropse/ui-zeropse/issues/new?template=site_submission.yml",
         label: "Add a Site",
         icon: <IconPlus size={16} aria-hidden="true" />,
       },
       {
-        href: "https://github.com/zeropse/ui-zeropse/issues/new?title=Update%20Site:%20[Site%20Name]&labels=enhancement&body=URL:%0AWhat%20to%20update:",
-        label: "Update Listing",
-        icon: <IconEdit size={16} aria-hidden="true" />,
+        href: "https://github.com/zeropse/ui-zeropse/issues/new?template=bug_report.yml",
+        label: "Report a Bug",
+        icon: <IconBug size={16} aria-hidden="true" />,
       },
     ],
   },
@@ -69,12 +63,8 @@ export function Footer() {
   return (
     <footer className="mt-32 rounded-t-[40px] bg-[#141413] px-6 pt-24 pb-12 text-white md:rounded-t-[80px] md:px-12">
       <div className="mx-auto max-w-7xl">
-        <h2 className="font-heading mb-16 max-w-2xl text-4xl font-medium tracking-tight md:text-5xl">
-          We&apos;re always here when you need to find the right tool.
-        </h2>
-
-        <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-4">
-          <div className="space-y-4 md:col-span-1 md:pr-8">
+        <div className="mb-16 grid grid-cols-2 gap-12 md:grid-cols-4">
+          <div className="flex flex-col items-center text-center space-y-4 md:items-start md:text-left col-span-2 md:col-span-2 md:pr-8">
             <Link
               href="/"
               className="font-heading inline-flex items-center gap-2 text-3xl font-medium tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-sm"

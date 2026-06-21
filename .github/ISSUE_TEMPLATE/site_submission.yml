@@ -1,0 +1,55 @@
+name: 🌐 Submit a New Site
+description: Suggest a new UI library, design system, or resource to be added to the directory.
+title: "[Site]: "
+labels: ["enhancement", "site-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new resource for Curated UI! We manually review all submissions to ensure they meet our quality and aesthetic standards.
+  - type: input
+    id: site_name
+    attributes:
+      label: Site Name
+      description: The name of the UI library or tool.
+      placeholder: e.g. Shadcn UI
+    validations:
+      required: true
+  - type: input
+    id: site_url
+    attributes:
+      label: Site URL
+      description: The link to the site.
+      placeholder: e.g. https://ui.shadcn.com/
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Select the category that best fits this resource.
+      options:
+        - UI Components
+        - Design Systems
+        - Resources & Tools
+        - Typography
+        - Animation
+        - Inspiration
+        - Media
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Short Description
+      description: A brief 1-2 sentence description of what the site is.
+      placeholder: e.g. Beautifully designed components that you can copy and paste into your apps.
+    validations:
+      required: true
+  - type: checkboxes
+    id: guidelines
+    attributes:
+      label: Quality Check
+      options:
+        - label: I have verified this site is active, accessible, and high-quality.
+          required: true
