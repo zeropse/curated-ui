@@ -48,7 +48,7 @@ export function ExploreHeader() {
               id="search"
               name="search"
               type="text"
-              placeholder="Search for UI, libraries, fonts..."
+              placeholder="Search for UI, libraries, fonts…"
               value={searchQuery || ""}
               onChange={(e) => setSearchQuery(e.target.value || null)}
               className="w-full pl-14 pr-14 py-4 rounded-full border border-primary/20 bg-background text-lg text-primary placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
@@ -56,7 +56,7 @@ export function ExploreHeader() {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery(null)}
-                className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-destructive transition-colors focus:outline-none flex items-center justify-center p-1"
+                className="absolute right-6 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-destructive transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring flex items-center justify-center p-1 rounded-sm"
                 aria-label="Clear search"
               >
                 <IconX size={20} />

@@ -87,7 +87,7 @@ export default function PrivacyPage() {
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-8">
+        <CardContent className="flex flex-col gap-8">
           {privacySections.map((section, index) => (
             <section
               key={section.title}

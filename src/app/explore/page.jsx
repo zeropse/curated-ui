@@ -9,7 +9,7 @@ export default function ExplorePage() {
         fallback={
           <div className="h-[50vh] flex items-center justify-center">
             <IconLoader
-              className="h-8 w-8 animate-spin text-muted-foreground"
+              className="size-8 animate-spin text-muted-foreground"
               stroke={2}
             />
           </div>

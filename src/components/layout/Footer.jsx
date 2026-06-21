@@ -64,7 +64,7 @@ export function Footer() {
     <footer className="mt-32 rounded-t-[40px] bg-[#141413] px-6 pt-24 pb-12 text-white md:rounded-t-[80px] md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 grid grid-cols-2 gap-12 md:grid-cols-4">
-          <div className="flex flex-col items-center text-center space-y-4 md:items-start md:text-left col-span-2 md:col-span-2 md:pr-8">
+          <div className="flex flex-col items-center text-center gap-4 md:items-start md:text-left col-span-2 md:col-span-2 md:pr-8">
             <Link
               href="/"
               className="font-heading inline-flex items-center gap-2 text-3xl font-medium tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-sm"
@@ -89,12 +89,12 @@ export function Footer() {
           </div>
 
           {sections.map((section) => (
-            <div key={section.title} className="space-y-4">
+            <div key={section.title} className="flex flex-col gap-4">
               <h3 className="text-xs font-bold uppercase tracking-widest text-[#696969]">
                 {section.title}
               </h3>
 
-              <ul className="space-y-3">
+              <ul className="flex flex-col gap-3">
                 {section.links.map((link) => {
                   const isExternal = link.href.startsWith("http");
 
@@ -118,12 +118,12 @@ export function Footer() {
             </div>
           ))}
 
-          <div className="space-y-4">
+          <div className="flex flex-col gap-4">
             <h3 className="text-xs font-bold uppercase tracking-widest text-[#696969]">
               Legal
             </h3>
 
-            <ul className="space-y-3">
+            <ul className="flex flex-col gap-3">
               {[
                 {
                   href: "/privacy",

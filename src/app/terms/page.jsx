@@ -63,7 +63,7 @@ export default function TermsPage() {
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-8">
+        <CardContent className="flex flex-col gap-8">
           {termsSections.map((section, index) => (
             <section
               key={section.title}
