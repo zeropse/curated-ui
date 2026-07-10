@@ -19,7 +19,7 @@ Curated UI is designed to be easily extensible. If you found a great UI library,
 **Option 2: Open a Pull Request (For Developers)**
 
 1. Fork the repository.
-2. Open `src/content/data.js`.
+2. Open `src/data/sites.js`.
 3. Add your new site to the `sites` array. Make sure you include a unique `imageSlug`:
    ```javascript
    {

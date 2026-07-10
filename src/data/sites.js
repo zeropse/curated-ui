@@ -334,4 +334,48 @@ export const sites = [
       "600+ High-quality React components, dashboards, and UI blocks.",
     imageSlug: "watermelon-ui",
   },
+  {
+    name: "Lucide",
+    url: "https://lucide.dev/",
+    category: "Icons & Illustrations",
+    description: "Beautiful & consistent icon toolkit made by the community.",
+    imageSlug: "lucide",
+  },
+  {
+    name: "Tabler Icons",
+    url: "https://tabler.io/icons",
+    category: "Icons & Illustrations",
+    description: "Over 5200 pixel-perfect icons for web design.",
+    imageSlug: "tabler-icons",
+  },
+  {
+    name: "Reicon",
+    url: "https://reicon.dev/",
+    category: "Icons & Illustrations",
+    description: "A beautifully crafted, modern icon library.",
+    imageSlug: "reicon",
+  },
+  {
+    name: "Phosphor Icons",
+    url: "https://phosphoricons.com/",
+    category: "Icons & Illustrations",
+    description:
+      "A flexible icon family for interfaces, diagrams, presentations.",
+    imageSlug: "phosphor-icons",
+  },
+  {
+    name: "Remix Icon",
+    url: "https://remixicon.com/",
+    category: "Icons & Illustrations",
+    description:
+      "Simply and delightfully crafted open source neutral style icon system.",
+    imageSlug: "remix-icon",
+  },
+  {
+    name: "Hugeicons",
+    url: "https://hugeicons.com/",
+    category: "Icons & Illustrations",
+    description: "Beautifully crafted icons for modern user interfaces.",
+    imageSlug: "hugeicons",
+  },
 ];
