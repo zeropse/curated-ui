@@ -50,7 +50,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## How to add a new resource
 
-1. Open `src/content/data.js`.
+1. Open `src/data/sites.js`.
 2. Add a new object to the `sites` array containing the `name`, `url`, `category`, `description`, and a unique `imageSlug`.
 3. Run `bun run fetch-images` to automatically capture its screenshot.
 4. Your new resource is now fully integrated!

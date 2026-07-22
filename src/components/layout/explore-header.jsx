@@ -79,7 +79,11 @@ export function ExploreHeader() {
 
               <InputGroupInput
                 ref={inputRef}
+                id="search-query"
+                name="q"
                 type="text"
+                aria-label="Search directory"
+                autoComplete="off"
                 placeholder="Search components, templates, animations... (Ctrl+K)"
                 className="text-base placeholder:text-muted-foreground/70 bg-transparent"
                 value={searchQuery || ""}

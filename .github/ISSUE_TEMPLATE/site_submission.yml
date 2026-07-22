@@ -1,28 +1,32 @@
 name: 🌐 Submit a New Site
 description: Suggest a new UI library, design system, or resource to be added to the directory.
-title: "[Site]: "
+title: "[Site Submission]: "
 labels: ["enhancement", "site-submission"]
+
 body:
   - type: markdown
     attributes:
       value: |
         Thank you for suggesting a new resource for Curated UI! We manually review all submissions to ensure they meet our quality and aesthetic standards.
+
   - type: input
     id: site_name
     attributes:
       label: Site Name
-      description: The name of the UI library or tool.
+      description: The name of the UI library, design system, or resource.
       placeholder: e.g. Shadcn UI
     validations:
       required: true
+
   - type: input
     id: site_url
     attributes:
       label: Site URL
-      description: The link to the site.
+      description: The official website URL.
       placeholder: e.g. https://ui.shadcn.com/
     validations:
       required: true
+
   - type: dropdown
     id: category
     attributes:
@@ -37,16 +41,34 @@ body:
         - Icons & Illustrations
         - Media & Sounds
         - Animations
+        - Other
     validations:
       required: true
+
+  - type: input
+    id: custom_category
+    attributes:
+      label: Custom Category (if "Other")
+      description: Leave this blank unless you selected **Other** above.
+      placeholder: e.g. Accessibility, Charts, AI Tools
+
   - type: textarea
     id: description
     attributes:
       label: Short Description
-      description: A brief 1-2 sentence description of what the site is.
+      description: A brief 1–2 sentence description of what this resource offers.
       placeholder: e.g. Beautifully designed components that you can copy and paste into your apps.
     validations:
       required: true
+
+  - type: checkboxes
+    id: duplicate_check
+    attributes:
+      label: Duplicate Check
+      options:
+        - label: I searched the directory and confirmed this site is not already listed.
+          required: true
+
   - type: checkboxes
     id: guidelines
     attributes:

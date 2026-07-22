@@ -25,7 +25,7 @@ Curated UI is designed to be easily extensible. If you found a great UI library,
    {
      name: "Example UI",
      url: "https://exampleui.com",
-     category: "UI Components",
+     category: "Select the category that best describes what this site offers.",
      description: "A brief description of what this site offers.",
      imageSlug: "example-ui",
    }

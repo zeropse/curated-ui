@@ -11,9 +11,15 @@ if (!fs.existsSync(OUT_DIR)) {
 
 async function main() {
   console.log(`Starting Puppeteer to capture ${sites.length} images...`);
-  const browser = await puppeteer.launch({
+  const launchOptions = {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  };
+  const chromePath =
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+  if (fs.existsSync(chromePath)) {
+    launchOptions.executablePath = chromePath;
+  }
+  const browser = await puppeteer.launch(launchOptions);
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 

@@ -378,4 +378,20 @@ export const sites = [
     description: "Beautifully crafted icons for modern user interfaces.",
     imageSlug: "hugeicons",
   },
+  {
+    name: "Motion Primitives",
+    url: "https://motion-primitives.com/",
+    category: "Animations",
+    description:
+      "Open-source UI motion components craftable with React, Motion, and Tailwind CSS.",
+    imageSlug: "motion-primitives",
+  },
+  {
+    name: "Evil Charts",
+    url: "https://evilcharts.com/",
+    category: "UI Components",
+    description:
+      "Design-focused, interactive chart components built with React, Recharts, and Shadcn UI.",
+    imageSlug: "evilcharts",
+  },
 ];
