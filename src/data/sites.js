@@ -399,8 +399,7 @@ export const sites = [
     url: "https://canvasui.dev/",
     category: "UI Components",
     description:
-      "Open-source component library of creative html-in-canvas and WebGL effects for React, Vue, Svelte, Solid, and vanilla JS.",
+      "Open-source component library of creative HTML-in-Canvas and WebGL effects for the modern web.",
     imageSlug: "canvas-ui",
   },
 ];
-

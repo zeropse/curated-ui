@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/empty";
 import { IconSearch } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
+import { shuffleArray } from "@/lib/utils";
 
 export function ExploreContent() {
   const [activeCategory, setActiveCategory] = useQueryState("category", {
@@ -24,8 +25,18 @@ export function ExploreContent() {
     defaultValue: "",
   });
 
+  const [shuffledAll, setShuffledAll] = React.useState(sites);
+
+  React.useEffect(() => {
+    if (activeCategory === "All") {
+      setShuffledAll(shuffleArray(sites));
+    }
+  }, [activeCategory]);
+
+  const sourceSites = activeCategory === "All" ? shuffledAll : sites;
+
   const q = searchQuery?.toLowerCase();
-  const filteredSites = sites.filter((site) => {
+  const filteredSites = sourceSites.filter((site) => {
     const matchesCategory =
       activeCategory === "All" || site.category === activeCategory;
     if (!matchesCategory) return false;

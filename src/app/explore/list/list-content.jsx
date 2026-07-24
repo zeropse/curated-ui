@@ -22,6 +22,7 @@ import {
   EmptyDescription,
   EmptyMedia,
 } from "@/components/ui/empty";
+import { shuffleArray } from "@/lib/utils";
 
 export function ListContent() {
   const [activeCategory, setActiveCategory] = useQueryState("category", {
@@ -31,10 +32,20 @@ export function ListContent() {
     defaultValue: "",
   });
 
+  const [shuffledAll, setShuffledAll] = React.useState(sites);
+
+  React.useEffect(() => {
+    if (activeCategory === "All") {
+      setShuffledAll(shuffleArray(sites));
+    }
+  }, [activeCategory]);
+
+  const sourceSites = activeCategory === "All" ? shuffledAll : sites;
+
   let filteredSites =
     activeCategory === "All"
-      ? sites
-      : sites.filter((site) => site.category === activeCategory);
+      ? sourceSites
+      : sourceSites.filter((site) => site.category === activeCategory);
 
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
