@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { IconArrowUpRight } from "@tabler/icons-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardHeader,
@@ -13,7 +14,7 @@ import {
 } from "@/components/ui/card";
 import { cn, getSiteImageSrc } from "@/lib/utils";
 
-export function SiteCard({ site }) {
+export function SiteCard({ site, priority = false }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -44,6 +45,17 @@ export function SiteCard({ site }) {
       >
         {/* Inset Image Frame */}
         <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-muted/30">
+          {site.category && (
+            <div className="absolute top-3 left-3 z-10 pointer-events-none">
+              <Badge
+                variant="outline"
+                className="bg-muted/80 h-auto px-2.5 py-1 text-[11px] font-semibold backdrop-blur-sm"
+              >
+                {site.category}
+              </Badge>
+            </div>
+          )}
+
           {!imageLoaded && !hasError && (
             <Skeleton className="absolute inset-0 h-full w-full" />
           )}
@@ -57,6 +69,7 @@ export function SiteCard({ site }) {
               src={getSiteImageSrc(site)}
               alt={site.name}
               fill
+              priority={priority}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={cn(
                 "object-cover object-top transition-transform duration-700 ease-out motion-safe:group-hover:scale-105",

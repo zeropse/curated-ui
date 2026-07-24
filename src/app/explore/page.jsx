@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { ExploreContent } from "./explore-content";
 import { SiteCardSkeleton } from "@/components/site-card";
+import { sites } from "@/data/sites";
 
 export const metadata = {
   title: "Explore",
@@ -8,11 +9,31 @@ export const metadata = {
 };
 
 export default function ExplorePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Curated UI Directory",
+    description:
+      "A curated directory of modern UI components, libraries, and design tools.",
+    numberOfItems: sites.length,
+    itemListElement: sites.map((site, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: site.name,
+      url: site.url,
+      description: site.description,
+    })),
+  };
+
   return (
     <main
       id="main-content"
       className="min-h-screen relative overflow-hidden py-32"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Suspense
         fallback={
           <div className="w-full animate-fade-in">

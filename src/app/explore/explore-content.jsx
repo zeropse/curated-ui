@@ -4,7 +4,7 @@ import React from "react";
 import { SiteCard } from "@/components/site-card";
 import { sites } from "@/data/sites";
 import { useQueryState } from "nuqs";
-import { ExploreHeader } from "@/components/layout/explore-header";
+import { ExploreHeader } from "@/app/explore/explore-header";
 import { VirtuosoGrid } from "react-virtuoso";
 import {
   Empty,
@@ -102,7 +102,9 @@ export function ExploreContent() {
                 </div>
               )),
             }}
-            itemContent={(_index, site) => <SiteCard site={site} />}
+            itemContent={(index, site) => (
+              <SiteCard site={site} priority={index < 6} />
+            )}
           />
         )}
       </section>

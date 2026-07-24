@@ -72,8 +72,8 @@ export function ExploreHeader() {
               <InputGroupAddon align="inline-end" className="pr-3">
                 {searchQuery && (
                   <InputGroupButton
-                    variant="ghost"
-                    className="size-8 p-0 text-muted-foreground hover:text-foreground rounded-full hover:bg-muted transition-colors"
+                    variant="destructive"
+                    className="size-8 p-0 rounded-full hover:bg-muted transition-colors"
                     onClick={() => {
                       setSearchQuery(null);
                       inputRef.current?.focus();
