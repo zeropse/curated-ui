@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { ExploreContent } from "./explore-content";
 import { SiteCardSkeleton } from "@/components/site-card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { sites } from "@/data/sites";
 
 export const metadata = {
@@ -37,10 +38,15 @@ export default function ExplorePage() {
       <Suspense
         fallback={
           <div className="w-full animate-fade-in">
-            {/* Mock Header Space */}
-            <div className="h-[200px] mb-12 flex flex-col items-center justify-center">
-              <div className="h-16 w-3/4 max-w-md bg-muted/20 animate-pulse rounded-xl mb-8" />
-              <div className="h-14 w-full max-w-xl bg-muted/20 animate-pulse rounded-full" />
+            {/* Header Skeleton */}
+            <div className="px-6 md:px-12 max-w-[1400px] mx-auto mb-12 flex flex-col items-center justify-center">
+              <Skeleton className="h-12 w-3/4 max-w-md rounded-xl mb-6" />
+              <Skeleton className="h-14 w-full max-w-2xl rounded-2xl mb-8" />
+              <div className="flex gap-2 overflow-hidden w-full max-w-3xl justify-center">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <Skeleton key={i} className="h-9 w-24 rounded-lg shrink-0" />
+                ))}
+              </div>
             </div>
             {/* Skeleton Grid */}
             <section className="px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 min-h-[50vh]">

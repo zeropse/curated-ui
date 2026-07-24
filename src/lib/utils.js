@@ -17,3 +17,20 @@ export function shuffleArray(array) {
   }
   return arr;
 }
+
+export function filterSites(sitesList, { category = "All", query = "" } = {}) {
+  const q = query?.trim().toLowerCase();
+  if (!sitesList) return [];
+  return sitesList.filter((site) => {
+    const matchesCategory = category === "All" || site.category === category;
+    if (!matchesCategory) return false;
+
+    if (q) {
+      return (
+        site.name.toLowerCase().includes(q) ||
+        site.description.toLowerCase().includes(q)
+      );
+    }
+    return true;
+  });
+}
