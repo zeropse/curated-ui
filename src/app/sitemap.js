@@ -9,7 +9,7 @@ export default function sitemap() {
     {
       url: "https://ui.zeropse.me/explore",
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {

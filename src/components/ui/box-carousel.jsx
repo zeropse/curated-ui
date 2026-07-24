@@ -281,7 +281,6 @@ const BoxCarousel = forwardRef(
           window.removeEventListener("mousemove", handleDragMove);
           window.removeEventListener("mouseup", handleDragEnd);
           window.removeEventListener("touchmove", handleDragMove);
-          window.removeEventListener("touchmove", handleDragMove);
           window.removeEventListener("touchend", handleDragEnd);
         };
       }
