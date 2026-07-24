@@ -402,4 +402,28 @@ export const sites = [
       "Open-source component library of creative HTML-in-Canvas and WebGL effects for the modern web.",
     imageSlug: "canvas-ui",
   },
+  {
+    name: "Anime.js",
+    url: "https://animejs.com/",
+    category: "Animations",
+    description:
+      "Fast, multipurpose and lightweight JavaScript animation library for creating complex CSS & SVG animations.",
+    imageSlug: "animejs",
+  },
+  {
+    name: "Motion",
+    url: "https://motion.dev/",
+    category: "Animations",
+    description:
+      "Modern, production-grade animation library for React, JavaScript, and Vue.",
+    imageSlug: "motion-dev",
+  },
+  {
+    name: "Bklit UI",
+    url: "https://bklit.com/",
+    category: "UI Components",
+    description:
+      "Component library built on top of shadcn/ui to help build charts and data visualizations effortlessly.",
+    imageSlug: "bklit",
+  },
 ];
