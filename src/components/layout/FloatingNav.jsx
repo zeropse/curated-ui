@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { version } from "../../../package.json";
 import { ThemeToggle } from "../ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { IconCompass } from "@tabler/icons-react";
@@ -32,7 +33,12 @@ export function FloatingNav() {
               priority
             />
           </div>
-          Curated<span className="text-orange-500"> UI</span>
+          <span>
+            Curated<span className="text-orange-500"> UI</span>
+          </span>
+          <span className="ml-1 rounded-full bg-orange-500/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-orange-500 border border-orange-500/20">
+            v{version}
+          </span>
         </Link>
 
         <div className="flex items-center gap-2">
