@@ -11,21 +11,11 @@ import {
 } from "@/components/ui/input-group";
 import { categories } from "@/data/categories";
 import { useQueryState } from "nuqs";
-import {
-  IconSearch,
-  IconLayoutGrid,
-  IconList,
-  IconX,
-} from "@tabler/icons-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useRef, useTransition } from "react";
+import { IconSearch, IconX } from "@tabler/icons-react";
+import { useEffect, useRef } from "react";
 
 export function ExploreHeader() {
-  const pathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
   const inputRef = useRef(null);
-  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -40,17 +30,6 @@ export function ExploreHeader() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
-
-  const view = pathname === "/explore/list" ? "list" : "grid";
-
-  const handleViewChange = (newView) => {
-    const newPath = newView === "list" ? "/explore/list" : "/explore";
-    const currentSearch = searchParams.toString();
-    const query = currentSearch ? `?${currentSearch}` : "";
-    startTransition(() => {
-      router.push(`${newPath}${query}`, { scroll: false });
-    });
-  };
 
   const [activeCategory, setActiveCategory] = useQueryState("category", {
     defaultValue: "All",
@@ -69,7 +48,7 @@ export function ExploreHeader() {
           </h1>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-6">
+          <div className="max-w-2xl mx-auto">
             <InputGroup className="h-14 rounded-2xl bg-background/60 backdrop-blur-xl border border-border/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] hover:border-border transition-all duration-300 [&:has(input:focus-visible)]:border-primary [&:has(input:focus-visible)]:ring-1 [&:has(input:focus-visible)]:ring-primary">
               <InputGroupAddon align="inline-start" className="pl-5 pr-2">
                 <InputGroupText>
@@ -105,31 +84,6 @@ export function ExploreHeader() {
                 )}
               </InputGroupAddon>
             </InputGroup>
-          </div>
-
-          {/* View Toggle */}
-          <div className="flex justify-center items-center gap-3">
-            <span className="text-sm font-medium text-muted-foreground hidden sm:inline-block">
-              View:
-            </span>
-            <Tabs value={view} onValueChange={handleViewChange}>
-              <TabsList className="flex h-9 bg-muted/50 p-0.5 rounded-lg border border-border/50 shadow-sm backdrop-blur-md">
-                <TabsTrigger
-                  value="grid"
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition-all data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground hover:text-foreground"
-                >
-                  <IconLayoutGrid size={14} aria-hidden="true" />
-                  Grid
-                </TabsTrigger>
-                <TabsTrigger
-                  value="list"
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition-all data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm text-muted-foreground hover:text-foreground"
-                >
-                  <IconList size={14} aria-hidden="true" />
-                  List
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
           </div>
         </div>
       </section>

@@ -68,7 +68,7 @@ export default function FAQPage() {
         </CardHeader>
 
         <CardContent className="pt-6">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
