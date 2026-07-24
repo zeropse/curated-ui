@@ -183,24 +183,28 @@ export function ExploreContent() {
 
       <section className="px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 min-h-[50vh]">
         {/* Results Counter Bar */}
-        <div className="flex items-center justify-between mb-8 pb-3 border-b border-border/40 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 mb-8 pb-3 border-b border-border/40 text-sm text-muted-foreground">
+          <div className="flex items-center gap-1.5 flex-wrap">
             <span>Showing</span>
             <span className="font-semibold text-foreground font-mono bg-muted/60 px-2 py-0.5 rounded-md text-xs">
               {filteredSites.length}
             </span>
             <span>{filteredSites.length === 1 ? "resource" : "resources"}</span>
           </div>
+
           {(searchQuery || activeCategory !== "All") && (
-            <div className="text-xs text-muted-foreground/80">
+            <div className="text-xs text-muted-foreground/80 flex items-center gap-1.5 flex-wrap">
               {activeCategory !== "All" && (
-                <span className="font-medium text-foreground">
-                  {activeCategory}
+                <span>
+                  in{" "}
+                  <span className="font-medium text-foreground">
+                    {activeCategory}
+                  </span>
                 </span>
               )}
               {searchQuery && (
                 <span>
-                  {activeCategory !== "All" ? " matching " : "Matching "}
+                  {activeCategory !== "All" ? "matching" : "for"}{" "}
                   <span className="font-medium text-foreground">
                     &quot;{searchQuery}&quot;
                   </span>
