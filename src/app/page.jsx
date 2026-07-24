@@ -83,18 +83,17 @@ export default function Home() {
 
             <div className="pt-4">
               <Button
-                asChild
+                render={<Link href="/explore" />}
+                nativeButton={false}
                 size="lg"
                 className="rounded-full bg-white text-neutral-950 hover:bg-stone-100 transition-all motion-safe:hover:scale-105 px-8 py-6 text-lg font-medium group shadow-xl shadow-white/5"
               >
-                <Link href="/explore">
-                  Browse Directory
-                  <IconArrowRight
-                    className="ml-2 motion-safe:group-hover:translate-x-1 transition-transform"
-                    data-icon="inline-end"
-                    aria-hidden="true"
-                  />
-                </Link>
+                Browse Directory
+                <IconArrowRight
+                  className="ml-2 motion-safe:group-hover:translate-x-1 transition-transform"
+                  data-icon="inline-end"
+                  aria-hidden="true"
+                />
               </Button>
             </div>
           </FadeIn>

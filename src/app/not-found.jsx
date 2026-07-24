@@ -15,8 +15,13 @@ export default function NotFound() {
       <p className="text-xl text-muted-foreground mb-8">
         We couldn&apos;t find the page you were looking for.
       </p>
-      <Button asChild size="lg" className="rounded-full">
-        <Link href="/">Return Home</Link>
+      <Button
+        render={<Link href="/" />}
+        nativeButton={false}
+        size="lg"
+        className="rounded-full"
+      >
+        Return Home
       </Button>
     </main>
   );

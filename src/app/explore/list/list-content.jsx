@@ -120,22 +120,19 @@ export function ListContent() {
                   </TableCell>
                   <TableCell className="text-right">
                     <Button
-                      variant="ghost"
                       size="icon"
-                      asChild
-                      className="hover:bg-primary/10 hover:text-primary rounded-full"
-                    >
-                      <a
-                        href={site.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <IconExternalLink
-                          className="size-4"
-                          aria-hidden="true"
+                      render={
+                        <a
+                          href={site.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         />
-                        <span className="sr-only">Visit {site.name}</span>
-                      </a>
+                      }
+                      nativeButton={false}
+                      className="rounded-full"
+                    >
+                      <IconExternalLink className="size-4" aria-hidden="true" />
+                      <span className="sr-only">Visit {site.name}</span>
                     </Button>
                   </TableCell>
                 </>
