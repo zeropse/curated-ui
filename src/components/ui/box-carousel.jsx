@@ -37,6 +37,8 @@ const CubeFace = memo(({ transform, className, children, style, debug }) => (
 CubeFace.displayName = "CubeFace";
 
 const MediaRenderer = memo(({ item, className, debug = false }) => {
+  const isInitialFace = Number(item?.id) <= 6;
+
   if (!debug) {
     if (item.type === "video") {
       return (
@@ -59,7 +61,7 @@ const MediaRenderer = memo(({ item, className, debug = false }) => {
         alt={item.alt || ""}
         draggable={false}
         fill
-        priority={true}
+        priority={isInitialFace}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         className={cn(
           "object-cover border border-border/50 bg-muted/20",
