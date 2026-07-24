@@ -28,7 +28,8 @@ export function filterSites(sitesList, { category = "All", query = "" } = {}) {
     if (q) {
       return (
         site.name.toLowerCase().includes(q) ||
-        site.description.toLowerCase().includes(q)
+        site.description.toLowerCase().includes(q) ||
+        site.category.toLowerCase().includes(q)
       );
     }
     return true;

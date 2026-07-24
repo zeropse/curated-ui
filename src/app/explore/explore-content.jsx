@@ -26,6 +26,31 @@ import { IconSearch, IconX } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { shuffleArray, filterSites } from "@/lib/utils";
 
+const virtuosoComponents = {
+  List: React.forwardRef(({ style, children, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      style={style}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-16 justify-items-center"
+    >
+      {children}
+    </div>
+  )),
+  Item: React.forwardRef(({ children, ...props }, ref) => (
+    <div
+      {...props}
+      ref={ref}
+      className="w-full max-w-[400px] flex justify-center"
+    >
+      {children}
+    </div>
+  )),
+};
+
+virtuosoComponents.List.displayName = "VirtuosoGridList";
+virtuosoComponents.Item.displayName = "VirtuosoGridItem";
+
 export function ExploreContent() {
   const inputRef = useRef(null);
   const [activeCategory, setActiveCategory] = useQueryState("category", {
@@ -34,6 +59,20 @@ export function ExploreContent() {
   const [searchQuery, setSearchQuery] = useQueryState("q", {
     defaultValue: "",
   });
+  const [inputValue, setInputValue] = React.useState(searchQuery || "");
+
+  // Sync local input value when URL query changes externally
+  React.useEffect(() => {
+    setInputValue(searchQuery || "");
+  }, [searchQuery]);
+
+  // Debounce search query update to URL
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchQuery(inputValue ? inputValue : null);
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [inputValue, setSearchQuery]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -91,16 +130,17 @@ export function ExploreContent() {
                 autoComplete="off"
                 placeholder="Search components, templates, animations... (Ctrl+K)"
                 className="text-base placeholder:text-muted-foreground/70 bg-transparent"
-                value={searchQuery || ""}
-                onChange={(e) => setSearchQuery(e.target.value || null)}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
               />
 
               <InputGroupAddon align="inline-end" className="pr-3">
-                {searchQuery && (
+                {inputValue && (
                   <InputGroupButton
                     variant="destructive"
                     className="size-8 p-0 rounded-full hover:bg-muted transition-colors"
                     onClick={() => {
+                      setInputValue("");
                       setSearchQuery(null);
                       inputRef.current?.focus();
                     }}
@@ -142,6 +182,34 @@ export function ExploreContent() {
       </div>
 
       <section className="px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 min-h-[50vh]">
+        {/* Results Counter Bar */}
+        <div className="flex items-center justify-between mb-8 pb-3 border-b border-border/40 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span>Showing</span>
+            <span className="font-semibold text-foreground font-mono bg-muted/60 px-2 py-0.5 rounded-md text-xs">
+              {filteredSites.length}
+            </span>
+            <span>{filteredSites.length === 1 ? "resource" : "resources"}</span>
+          </div>
+          {(searchQuery || activeCategory !== "All") && (
+            <div className="text-xs text-muted-foreground/80">
+              {activeCategory !== "All" && (
+                <span className="font-medium text-foreground">
+                  {activeCategory}
+                </span>
+              )}
+              {searchQuery && (
+                <span>
+                  {activeCategory !== "All" ? " matching " : "Matching "}
+                  <span className="font-medium text-foreground">
+                    &quot;{searchQuery}&quot;
+                  </span>
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+
         {filteredSites.length === 0 ? (
           <Empty className="py-32 border-none">
             <EmptyMedia variant="icon" className="size-16 rounded-2xl mb-2">
@@ -156,6 +224,7 @@ export function ExploreContent() {
             <div className="flex justify-center">
               <Button
                 onClick={() => {
+                  setInputValue("");
                   setSearchQuery(null);
                   setActiveCategory("All");
                 }}
@@ -168,27 +237,7 @@ export function ExploreContent() {
           <VirtuosoGrid
             useWindowScroll
             data={filteredSites}
-            components={{
-              List: React.forwardRef(({ style, children, ...props }, ref) => (
-                <div
-                  ref={ref}
-                  {...props}
-                  style={style}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-16 justify-items-center"
-                >
-                  {children}
-                </div>
-              )),
-              Item: React.forwardRef(({ children, ...props }, ref) => (
-                <div
-                  {...props}
-                  ref={ref}
-                  className="w-full max-w-[400px] flex justify-center"
-                >
-                  {children}
-                </div>
-              )),
-            }}
+            components={virtuosoComponents}
             itemContent={(index, site) => (
               <SiteCard site={site} priority={index < 6} />
             )}
