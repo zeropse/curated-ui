@@ -2,7 +2,18 @@
 
 Before implementing any feature, modification, refactor, or architectural decision, always consult and apply the following resources in order of priority:
 
-### 1. Next.js Architecture & Development
+### 1. General Principles & Coding Guidelines
+
+Always use:
+
+- `karpathy-guidelines`
+
+Requirements:
+
+- Apply Karpathy guidelines when writing, reviewing, or refactoring code.
+- Focus on thinking before coding, simplicity first, surgical changes, and goal-driven execution.
+
+### 2. Next.js Architecture & Development
 
 Always use:
 
@@ -24,7 +35,7 @@ Apply these resources for:
 - Accessibility
 - Code structure
 
-### 2. UI Components
+### 3. UI Components
 
 Always use:
 
@@ -37,7 +48,7 @@ Requirements:
 - Maintain consistency across the application.
 - Ensure accessibility standards are preserved.
 
-### 3. Styling
+### 4. Styling
 
 Always use:
 
@@ -48,7 +59,7 @@ Requirements:
 - Follow Tailwind CSS v4 conventions.
 - Avoid custom CSS when Tailwind utilities can achieve the same result.
 
-### 4. Design & UX Standards
+### 5. Design & UX Standards
 
 Always use:
 
