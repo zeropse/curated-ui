@@ -57,7 +57,7 @@ export function FloatingNav() {
           </Button>
 
           <Button
-            render={<Link href="/explore" />}
+            render={<Link href="/browse" />}
             nativeButton={false}
             className="rounded-full gap-1.5 px-3 sm:px-4 text-xs sm:text-sm h-9 sm:h-10"
           >

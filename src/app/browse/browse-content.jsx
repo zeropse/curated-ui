@@ -42,7 +42,7 @@ const virtuosoComponents = {
 virtuosoComponents.List.displayName = "VirtuosoGridList";
 virtuosoComponents.Item.displayName = "VirtuosoGridItem";
 
-export function ExploreContent() {
+export function BrowseContent() {
   const [activeCategory, setActiveCategory] = useQueryState("category", {
     defaultValue: "All",
   });
@@ -68,7 +68,7 @@ export function ExploreContent() {
   return (
     <>
       <SearchFilterBar
-        title="Explore the Directory"
+        title="Browse the Directory"
         searchPlaceholder="Search components, templates, animations... (Ctrl+K)"
         ariaLabel="Search directory"
         categories={siteCategories}

@@ -14,7 +14,7 @@ body:
       label: Affected Area
       description: Select where the bug or issue occurs.
       options:
-        - Site Directory (/explore)
+        - Site Directory (/browse)
         - Skills Directory (/skills)
         - Broken Link or Invalid CLI Command
         - UI Components & Visual Layout

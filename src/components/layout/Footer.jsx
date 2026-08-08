@@ -20,7 +20,7 @@ import {
 const year = new Date().getFullYear();
 
 const resourceLinks = [
-  { name: "Explore Sites", href: "/explore", icon: IconCompass },
+  { name: "Browse Sites", href: "/browse", icon: IconCompass },
   { name: "Popular Skills", href: "/skills", icon: IconSparkles },
   { name: "FAQ", href: "/faq", icon: IconHelp },
   { name: "Privacy Policy", href: "/privacy", icon: IconShieldLock },

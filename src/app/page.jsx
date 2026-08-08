@@ -52,7 +52,7 @@ export default function Home() {
       "A hand-curated directory of modern UI components, design systems, and AI agent skills.",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://ui.zeropse.me/explore?q={search_term_string}",
+      target: "https://ui.zeropse.me/browse?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -164,7 +164,7 @@ export default function Home() {
                 </Button>
 
                 <Button
-                  render={<Link href="/explore" />}
+                  render={<Link href="/browse" />}
                   nativeButton={false}
                   className="rounded-full gap-2 px-7 py-6 text-base font-medium"
                 >

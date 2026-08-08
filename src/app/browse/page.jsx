@@ -1,25 +1,25 @@
 import { Suspense } from "react";
-import { ExploreContent } from "./explore-content";
+import { BrowseContent } from "./browse-content";
 import { SiteCardSkeleton } from "@/components/site-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { sites } from "@/data/sites";
 
 export const metadata = {
-  title: "Explore UI Directory",
+  title: "Browse UI Directory",
   description:
     "Browse the curated directory of modern UI components, design systems, icons, animations, and web development libraries.",
   alternates: {
-    canonical: "/explore",
+    canonical: "/browse",
   },
   openGraph: {
-    title: "Explore UI Directory | Curated UI",
+    title: "Browse UI Directory | Curated UI",
     description:
       "Browse the curated directory of modern UI components, design systems, icons, animations, and web development libraries.",
-    url: "https://ui.zeropse.me/explore",
+    url: "https://ui.zeropse.me/browse",
   },
 };
 
-export default function ExplorePage() {
+export default function BrowsePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -69,7 +69,7 @@ export default function ExplorePage() {
           </div>
         }
       >
-        <ExploreContent />
+        <BrowseContent />
       </Suspense>
     </main>
   );
