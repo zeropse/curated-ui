@@ -10,6 +10,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 
 export function SkillCard({ skill }) {
@@ -23,27 +24,25 @@ export function SkillCard({ skill }) {
   };
 
   return (
-    <Card className="w-full h-full flex flex-col justify-between group relative overflow-hidden border-border/60 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
-      <div className="flex flex-col">
-        <CardHeader className="space-y-3">
+    <Card className="w-full h-full flex flex-col justify-between group relative overflow-hidden border border-border/40 bg-background shadow-sm transition-all duration-500 animate-in fade-in zoom-in-95 motion-safe:hover:-translate-y-2 hover:border-primary/20 hover:shadow-xl dark:hover:shadow-none">
+      <div className="flex flex-col gap-3">
+        <CardHeader className="space-y-2">
           {skill.category && (
             <Badge
-              variant="secondary"
-              className="w-fit rounded-md px-2 py-0.5 text-[11px] font-medium"
+              variant="outline"
+              className="w-fit rounded-md text-[11px] font-medium"
             >
               {skill.category}
             </Badge>
           )}
 
-          <div className="space-y-1">
-            <CardTitle className="text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
-              {skill.name}
-            </CardTitle>
+          <CardTitle className="text-xl font-heading font-medium tracking-tight transition-colors duration-300 group-hover:text-primary">
+            {skill.name}
+          </CardTitle>
 
-            <p className="truncate font-mono text-xs text-muted-foreground">
-              {skill.source}
-            </p>
-          </div>
+          <CardDescription className="truncate font-mono text-xs text-muted-foreground">
+            {skill.source}
+          </CardDescription>
         </CardHeader>
 
         <CardContent>
