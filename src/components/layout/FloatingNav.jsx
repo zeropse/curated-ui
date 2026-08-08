@@ -5,7 +5,7 @@ import Image from "next/image";
 import { version } from "../../../package.json";
 import { ThemeToggle } from "../ThemeToggle";
 import { Button } from "@/components/ui/button";
-import { IconCompass } from "@tabler/icons-react";
+import { IconCompass, IconSparkles } from "@tabler/icons-react";
 
 export function FloatingNav() {
   return (
@@ -44,9 +44,18 @@ export function FloatingNav() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button
+            render={<Link href="/skills" />}
+            nativeButton={false}
+            variant="outline"
+            className="rounded-full gap-1.5"
+          >
+            <IconSparkles size={18} className="text-orange-500" />
+            Skills
+          </Button>
+          <Button
             render={<Link href="/explore" />}
             nativeButton={false}
-            className="rounded-full"
+            className="rounded-full gap-1.5"
           >
             <IconCompass size={18} />
             Explore

@@ -13,6 +13,7 @@ import {
   IconShieldLock,
   IconFileText,
   IconArrowUpRight,
+  IconSparkles,
 } from "@tabler/icons-react";
 
 const linkClass =
@@ -21,6 +22,7 @@ const linkClass =
 const year = new Date().getFullYear();
 
 const informationLinks = [
+  { name: "Popular Skills", href: "/skills", icon: IconSparkles },
   { name: "FAQ", href: "/faq", icon: IconHelp },
   { name: "Privacy Policy", href: "/privacy", icon: IconShieldLock },
   { name: "Terms of Service", href: "/terms", icon: IconFileText },

@@ -13,6 +13,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: "https://ui.zeropse.me/skills",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: "https://ui.zeropse.me/faq",
       lastModified: new Date(),
       changeFrequency: "monthly",
