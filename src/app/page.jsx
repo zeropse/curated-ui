@@ -10,6 +10,17 @@ import {
 } from "@tabler/icons-react";
 import { FadeIn } from "@/components/ui/fade-in";
 
+export const metadata = {
+  title: "Curated UI - Directory of Web UI Resources & AI Agent Skills",
+  description:
+    "Discover a handpicked collection of modern UI libraries, design systems, and AI agent skills to build exceptional web applications faster.",
+  openGraph: {
+    title: "Curated UI - Directory of Web UI Resources & AI Agent Skills",
+    description:
+      "Discover a handpicked collection of modern UI libraries, design systems, and AI agent skills to build exceptional web applications faster.",
+  },
+};
+
 const features = [
   {
     title: "Handpicked Quality",
@@ -32,8 +43,26 @@ const features = [
 ];
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Curated UI",
+    url: "https://ui.zeropse.me",
+    description:
+      "A hand-curated directory of modern UI components, design systems, and AI agent skills.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://ui.zeropse.me/explore?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <main className="overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="px-6 pt-24 md:px-16 md:pt-36">
         <div className="mx-auto max-w-6xl">
@@ -123,24 +152,24 @@ export default function Home() {
             </div>
 
             <FadeIn delay={0.4}>
-              <div className="mt-10 flex justify-center gap-3">
-                <Button
-                  render={<Link href="/explore" />}
-                  nativeButton={false}
-                  className="rounded-full px-7 py-6"
-                >
-                  <IconCompass className="size-4" />
-                  Browse Directory
-                </Button>
-
+              <div className="mt-10 flex flex-wrap justify-center gap-3">
                 <Button
                   render={<Link href="/skills" />}
                   nativeButton={false}
                   variant="outline"
-                  className="rounded-full border-white/15 bg-transparent px-7 py-6 text-white hover:bg-white/10"
+                  className="rounded-full gap-2 px-7 py-6 text-base font-medium border-white/20 bg-transparent text-white hover:bg-white/10"
                 >
-                  <IconSparkles className="size-4 text-orange-500" />
-                  Explore Skills
+                  <IconSparkles size={18} className="text-orange-500" />
+                  <span>Explore Skills</span>
+                </Button>
+
+                <Button
+                  render={<Link href="/explore" />}
+                  nativeButton={false}
+                  className="rounded-full gap-2 px-7 py-6 text-base font-medium"
+                >
+                  <IconCompass size={18} />
+                  <span>Browse Directory</span>
                 </Button>
               </div>
             </FadeIn>

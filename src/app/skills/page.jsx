@@ -4,13 +4,17 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { skills } from "@/data/skills";
 
 export const metadata = {
-  title: "Popular Skills | Curated UI",
+  title: "Popular AI Agent Skills",
   description:
-    "Explore popular developer AI agent skills, coding guidelines, and architectural patterns used in Curated UI.",
+    "Explore popular developer AI agent skills, coding guidelines, framework rules, and ready-to-run CLI commands.",
+  alternates: {
+    canonical: "/skills",
+  },
   openGraph: {
-    title: "Popular Skills | Curated UI",
+    title: "Popular AI Agent Skills | Curated UI",
     description:
-      "Explore popular developer AI agent skills, coding guidelines, and architectural patterns used in Curated UI.",
+      "Explore popular developer AI agent skills, coding guidelines, framework rules, and ready-to-run CLI commands.",
+    url: "https://ui.zeropse.me/skills",
   },
 };
 

@@ -62,7 +62,7 @@ export function FloatingNav() {
             className="rounded-full gap-1.5 px-3 sm:px-4 text-xs sm:text-sm h-9 sm:h-10"
           >
             <IconCompass size={16} className="shrink-0" />
-            <span className="hidden sm:inline">Explore</span>
+            <span className="hidden sm:inline">Browse</span>
           </Button>
         </div>
       </nav>

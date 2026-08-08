@@ -5,8 +5,18 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { sites } from "@/data/sites";
 
 export const metadata = {
-  title: "Explore",
-  description: "Browse the curated directory of modern UI tools and libraries.",
+  title: "Explore UI Directory",
+  description:
+    "Browse the curated directory of modern UI components, design systems, icons, animations, and web development libraries.",
+  alternates: {
+    canonical: "/explore",
+  },
+  openGraph: {
+    title: "Explore UI Directory | Curated UI",
+    description:
+      "Browse the curated directory of modern UI components, design systems, icons, animations, and web development libraries.",
+    url: "https://ui.zeropse.me/explore",
+  },
 };
 
 export default function ExplorePage() {
