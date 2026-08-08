@@ -1,92 +1,143 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { IconSearch, IconBook, IconX } from "@tabler/icons-react";
-import { skills } from "@/data/skills";
+import React from "react";
 import { SkillCard } from "@/components/skill-card";
+import { SearchFilterBar } from "@/components/search-filter-bar";
+import { skills, skillCategories } from "@/data/skills";
+import { useQueryState } from "nuqs";
+import { VirtuosoGrid } from "react-virtuoso";
+import {
+  Empty,
+  EmptyHeader,
+  EmptyTitle,
+  EmptyDescription,
+  EmptyMedia,
+} from "@/components/ui/empty";
+import { IconSearch } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { shuffleArray, filterSkills } from "@/lib/utils";
+
+const virtuosoComponents = {
+  List: React.forwardRef(({ style, children, ...props }, ref) => (
+    <div
+      ref={ref}
+      {...props}
+      style={style}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-12 md:gap-y-16 justify-items-center"
+    >
+      {children}
+    </div>
+  )),
+  Item: React.forwardRef(({ children, ...props }, ref) => (
+    <div
+      {...props}
+      ref={ref}
+      className="w-full max-w-[400px] flex justify-center"
+    >
+      {children}
+    </div>
+  )),
+};
+
+virtuosoComponents.List.displayName = "VirtuosoGridList";
+virtuosoComponents.Item.displayName = "VirtuosoGridItem";
 
 export function SkillsContent() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useQueryState("category", {
+    defaultValue: "All",
+  });
+  const [searchQuery, setSearchQuery] = useQueryState("q", {
+    defaultValue: "",
+  });
 
-  const filteredSkills = useMemo(() => {
-    if (!searchQuery.trim()) return skills;
-    const q = searchQuery.toLowerCase();
-    return skills.filter(
-      (skill) =>
-        skill.name.toLowerCase().includes(q) ||
-        skill.description.toLowerCase().includes(q) ||
-        skill.source.toLowerCase().includes(q) ||
-        skill.category.toLowerCase().includes(q),
-    );
-  }, [searchQuery]);
+  const [shuffledAll, setShuffledAll] = React.useState(skills);
+
+  React.useEffect(() => {
+    if (activeCategory === "All") {
+      setShuffledAll(shuffleArray(skills));
+    }
+  }, [activeCategory]);
+
+  const sourceSkills = activeCategory === "All" ? shuffledAll : skills;
+
+  const filteredSkills = filterSkills(sourceSkills, {
+    category: activeCategory,
+    query: searchQuery,
+  });
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
-      {/* Hero Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <h1 className="font-heading text-4xl md:text-6xl font-extrabold tracking-tight text-foreground mb-4">
-          Popular <span className="text-orange-500">Skills</span> I Use
-        </h1>
+    <>
+      <SearchFilterBar
+        title="Explore Popular Skills I Use"
+        searchPlaceholder="Search skills, guidelines, frameworks... (Ctrl+K)"
+        ariaLabel="Search skills"
+        categories={skillCategories}
+      />
 
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-          A collection of developer skills and capabilities for AI coding
-          agents.
-        </p>
-      </div>
+      <section className="px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 min-h-[50vh]">
+        {/* Results Counter Bar */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 mb-8 pb-3 border-b border-border/40 text-sm text-muted-foreground">
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <span>Showing</span>
+            <span className="font-semibold text-foreground font-mono bg-muted/60 px-2 py-0.5 rounded-md text-xs">
+              {filteredSkills.length}
+            </span>
+            <span>{filteredSkills.length === 1 ? "skill" : "skills"}</span>
+          </div>
 
-      {/* Real-time Search Input Bar */}
-      <div className="max-w-2xl mx-auto mb-12">
-        <div className="relative flex items-center">
-          <IconSearch className="absolute left-4 w-5 h-5 text-muted-foreground pointer-events-none z-10" />
-          <Input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search skills by name, source, or category..."
-            className="w-full h-12 pl-12 pr-10 rounded-2xl border-border/80 bg-background/80 text-foreground placeholder:text-muted-foreground/70 shadow-sm focus-visible:ring-orange-500/50 text-sm"
-          />
-          {searchQuery && (
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              onClick={() => setSearchQuery("")}
-              className="absolute right-3 rounded-full text-muted-foreground hover:text-foreground"
-              aria-label="Clear search"
-            >
-              <IconX className="w-4 h-4" />
-            </Button>
+          {(searchQuery || activeCategory !== "All") && (
+            <div className="text-xs text-muted-foreground/80 flex items-center gap-1.5 flex-wrap">
+              {activeCategory !== "All" && (
+                <span>
+                  in{" "}
+                  <span className="font-medium text-foreground">
+                    {activeCategory}
+                  </span>
+                </span>
+              )}
+              {searchQuery && (
+                <span>
+                  {activeCategory !== "All" ? "matching" : "for"}{" "}
+                  <span className="font-medium text-foreground">
+                    &quot;{searchQuery}&quot;
+                  </span>
+                </span>
+              )}
+            </div>
           )}
         </div>
-      </div>
 
-      {/* Skills Card Grid */}
-      {filteredSkills.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredSkills.map((skill) => (
-            <SkillCard key={skill.id} skill={skill} />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-16 px-4 border border-dashed border-border/80 rounded-3xl bg-card/30">
-          <IconBook className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
-          <h3 className="font-heading text-lg font-bold text-foreground mb-2">
-            No matching skills found
-          </h3>
-          <p className="text-sm text-muted-foreground max-w-sm mx-auto mb-6">
-            We couldn&apos;t find any skill matching &quot;{searchQuery}&quot;.
-            Try searching for &quot;Design&quot; or something else.
-          </p>
-          <Button
-            variant="default"
-            onClick={() => setSearchQuery("")}
-            className="rounded-xl px-4 py-2 bg-orange-500 text-white hover:bg-orange-600"
-          >
-            Clear Search
-          </Button>
-        </div>
-      )}
-    </div>
+        {filteredSkills.length === 0 ? (
+          <Empty className="py-32 border-none">
+            <EmptyMedia variant="icon" className="size-16 rounded-2xl mb-2">
+              <IconSearch className="size-8" />
+            </EmptyMedia>
+            <EmptyHeader>
+              <EmptyTitle className="text-xl">No skills found</EmptyTitle>
+              <EmptyDescription>
+                Try adjusting your search or selecting a different category.
+              </EmptyDescription>
+            </EmptyHeader>
+            <div className="flex justify-center">
+              <Button
+                onClick={() => {
+                  setSearchQuery(null);
+                  setActiveCategory("All");
+                }}
+              >
+                Clear Filters
+              </Button>
+            </div>
+          </Empty>
+        ) : (
+          <VirtuosoGrid
+            useWindowScroll
+            data={filteredSkills}
+            components={virtuosoComponents}
+            itemContent={(index, skill) => <SkillCard skill={skill} />}
+          />
+        )}
+      </section>
+    </>
   );
 }

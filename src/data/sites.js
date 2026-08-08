@@ -427,3 +427,8 @@ export const sites = [
     imageSlug: "bklit",
   },
 ];
+
+export const siteCategories = [
+  "All",
+  ...Array.from(new Set(sites.map((s) => s.category))),
+];

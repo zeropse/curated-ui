@@ -35,3 +35,25 @@ export function filterSites(sitesList, { category = "All", query = "" } = {}) {
     return true;
   });
 }
+
+export function filterSkills(
+  skillsList,
+  { category = "All", query = "" } = {},
+) {
+  const q = query?.trim().toLowerCase();
+  if (!skillsList) return [];
+  return skillsList.filter((skill) => {
+    const matchesCategory = category === "All" || skill.category === category;
+    if (!matchesCategory) return false;
+
+    if (q) {
+      return (
+        skill.name.toLowerCase().includes(q) ||
+        skill.description.toLowerCase().includes(q) ||
+        skill.source.toLowerCase().includes(q) ||
+        skill.category.toLowerCase().includes(q)
+      );
+    }
+    return true;
+  });
+}
