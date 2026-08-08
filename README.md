@@ -2,128 +2,198 @@
 
 ![Curated UI](./public/og-image.png)
 
-**Curated UI** is a handpicked directory of modern web UI libraries, design systems, animation tools, typography pairings, and ready-to-use **AI Agent Skills**. Designed for developers, designers, and AI-assisted workflows to build exceptional web interfaces faster.
+A curated collection of modern UI resources for developers and designers.
 
----
+Curated UI brings together UI libraries, design systems, animation tools, typography resources, and AI agent skills in one searchable directory. The goal is simple: make it easier to discover reliable tools and patterns when building web interfaces.
 
-## 🌟 Key Features
+## Features
 
-- 🎨 **Curated UI & Design Resources:** Hand-picked React/Tailwind UI component libraries, micro-animation tools, color palettes, and icons.
-- 🤖 **AI Agent Skills Directory:** Pre-built agent guidelines & rule sets (Karpathy Guidelines, Next.js App Router patterns, Shadcn UI workflows, Tailwind v4 docs) with one-click `npx skills add` copy commands for AI coding assistants (Claude, Cursor, Antigravity, Windsurf).
-- ⚡ **Instant Search & Filtering:** Search by category or keyword using stateful URL parameters (`nuqs`) and smooth animations (`motion`).
-- 📸 **Automated Screenshot Generator:** Headless browser integration with Puppeteer to fetch crisp screenshots of listed web resources automatically.
+### UI Resources
 
----
+A handpicked collection of:
 
-## 🛠️ Tech Stack
+- React and Tailwind component libraries
+- Design systems
+- Animation and interaction libraries
+- Icon sets
+- Color tools
+- Typography resources
 
-- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/) & [React 19](https://react.dev/)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Components:** [shadcn/ui](https://ui.shadcn.com/) & [@base-ui/react](https://base-ui.com/)
-- **Icons:** [Tabler Icons React](https://tabler.io/icons)
-- **Animations:** [Motion](https://motion.dev/) & [tw-animate-css](https://github.com/n3r4zzurr0/tw-animate-css)
-- **State & Virtualization:** [nuqs](https://nuqs.47ng.com/) & [react-virtuoso](https://virtuoso.dev/)
-- **Automation:** [Puppeteer](https://pptr.dev/) (captures local screenshots to bypass external runtime dependencies)
-- **Package Manager / Runtime:** [Bun](https://bun.sh/)
+### AI Agent Skills
 
----
+A directory of reusable instructions which i mainly use and workflows for AI coding assistants.
 
-## 🚀 Getting Started
+Each skill includes a ready-to-copy command:
 
-### 1. Clone & Install Dependencies
+```bash
+npx skills add author/repository
+```
+
+Compatible with AI development tools such as Claude, Cursor, Windsurf, and other agent-based workflows.
+
+### Search & Filtering
+
+Resources can be searched and filtered by category or keyword.
+
+Filtering state is persisted through URL parameters using `nuqs`, with animated transitions powered by `motion`.
+
+### Automated Screenshots
+
+Resource screenshots are generated automatically using Puppeteer.
+
+Screenshots are stored locally to avoid relying on third-party image APIs at runtime.
+
+## Tech Stack
+
+| Area           | Technology                |
+| -------------- | ------------------------- |
+| Framework      | Next.js 16 (App Router)   |
+| UI             | React 19                  |
+| Styling        | Tailwind CSS v4           |
+| Components     | shadcn/ui, @base-ui/react |
+| Icons          | Tabler Icons React        |
+| Animation      | Motion, tw-animate-css    |
+| URL State      | nuqs                      |
+| Virtualization | react-virtuoso            |
+| Automation     | Puppeteer                 |
+| Runtime        | Bun                       |
+
+## Getting Started
+
+### Requirements
+
+- Node.js
+- Bun
+
+### Installation
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/zeropse/curated-ui.git
+
 cd curated-ui
+```
+
+Install dependencies:
+
+```bash
 bun install
 ```
 
-### 2. Fetch Screenshots (Optional / First Setup)
+## Development
 
-To capture screenshots for newly added sites in `src/data/sites.js`:
-
-```bash
-bun run fetch-images
-```
-
-_*Note: Screenshots are saved directly to `public/images/` to avoid third-party API rate limits during runtime.*_
-
-### 3. Run Development Server
+Start the development server:
 
 ```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to explore the app.
+Open:
 
----
+```
+http://localhost:3000
+```
 
-## 📂 Directory Structure
+## Screenshot Generation
 
-```text
+Curated UI stores resource screenshots locally.
+
+To generate screenshots for resources added in `src/data/sites.js`:
+
+```bash
+bun run fetch-images
+```
+
+Generated images are saved to:
+
+```
+public/images/
+```
+
+This keeps the application independent from external screenshot services and runtime API limits.
+
+## Project Structure
+
+```
 curated-ui/
 ├── scripts/
-│   └── downloadImages.js    # Puppeteer screenshot capture script
+│   └── downloadImages.js     # Puppeteer screenshot generator
+│
 ├── src/
-│   ├── app/                 # Next.js App Router pages (browse, skills, faq, privacy, terms)
-│   ├── components/          # Reusable UI components & shadcn primitives
+│   ├── app/                  # Next.js routes
+│   ├── components/           # Shared UI components
 │   ├── data/
-│   │   ├── sites.js         # Curated list of web UI tools & libraries
-│   │   └── skills.js        # Curated list of AI Agent skills & guidelines
-│   ├── hooks/               # Custom React hooks
-│   └── lib/                 # Utility functions & helpers
+│   │   ├── sites.js          # UI resource data
+│   │   └── skills.js         # AI agent skill data
+│   ├── hooks/                # Custom React hooks
+│   └── lib/                  # Utilities
+│
 └── public/
-    └── images/              # Downloaded resource screenshots
+    └── images/               # Generated screenshots
 ```
 
 ---
 
-## ➕ Adding New Resources
+## Adding Resources
 
-### Adding a Web UI Site
+### 1: Add a UI Resource
 
-1. Open `src/data/sites.js`.
-2. Append a new site object to the `sites` array:
-   ```javascript
-   {
-     name: "Library Name",
-     url: "https://example.com",
-     category: "UI Components",
-     description: "Short description of the resource.",
-     imageSlug: "library-name"
-   }
-   ```
-3. Run `bun run fetch-images` to capture the site's screenshot automatically.
+Edit:
 
-### Adding an AI Agent Skill
+```
+src/data/sites.js
+```
 
-1. Open `src/data/skills.js`.
-2. Append a new skill object to the `skills` array:
-   ```javascript
-   {
-     name: "Skill Name",
-     category: "Category Name",
-     description: "Detailed description of the skill and rules.",
-     source: "author/repo-name",
-     url: "https://skills.sh/author/repo-name",
-     copyCommand: "npx skills add author/repo-name"
-   }
-   ```
+Add a new entry:
 
----
+```javascript
+{
+  name: "Library Name",
+  url: "https://example.com",
+  category: "UI Components",
+  description: "Short description of the resource.",
+  imageSlug: "library-name"
+}
+```
 
-## 📜 Available Scripts
+Generate its screenshot:
 
-| Command                | Description                                |
-| :--------------------- | :----------------------------------------- |
-| `bun dev`              | Runs the Next.js dev server with Turbopack |
-| `bun run build`        | Builds the production bundle               |
-| `bun run start`        | Runs the built production server           |
-| `bun run lint`         | Runs ESLint checks                         |
-| `bun run fetch-images` | Runs the Puppeteer screenshot fetch script |
+```bash
+bun run fetch-images
+```
 
----
+### 2: Add an AI Skill
 
-## 📄 License
+Edit:
+
+```
+src/data/skills.js
+```
+
+Add a new entry:
+
+```javascript
+{
+  name: "Skill Name",
+  category: "Category",
+  description: "Description of the workflow or guidelines.",
+  source: "author/repository",
+  url: "https://skills.sh/author/repository",
+  copyCommand: "npx skills add author/repository"
+}
+```
+
+## Scripts
+
+| Command                | Description                   |
+| ---------------------- | ----------------------------- |
+| `bun dev`              | Start development server      |
+| `bun run build`        | Create production build       |
+| `bun run start`        | Run production server         |
+| `bun run lint`         | Run ESLint                    |
+| `bun run fetch-images` | Generate resource screenshots |
+
+## License
 
 MIT © [zeropse](https://github.com/zeropse)
