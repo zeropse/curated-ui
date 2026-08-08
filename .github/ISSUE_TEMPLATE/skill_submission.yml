@@ -13,8 +13,8 @@ body:
     id: skill_name
     attributes:
       label: Skill Name
-      description: The name of the AI agent skill or guideline.
-      placeholder: e.g. Karpathy Guidelines
+      description: "The name of the AI agent skill or guideline."
+      placeholder: "e.g. Karpathy Guidelines"
     validations:
       required: true
 
@@ -22,7 +22,7 @@ body:
     id: category
     attributes:
       label: Category
-      description: Select the category that best fits this skill.
+      description: "Select the category that best fits this skill."
       options:
         - Coding Guidelines
         - Next.js & Frameworks
@@ -40,8 +40,8 @@ body:
     id: source
     attributes:
       label: Source Repository / Path
-      description: The repository identifier or source path on GitHub or skills.sh.
-      placeholder: e.g. szkocot/andrej-karpathy-skills
+      description: "The repository identifier or source path on GitHub or skills.sh."
+      placeholder: "e.g. szkocot/andrej-karpathy-skills"
     validations:
       required: true
 
@@ -49,8 +49,8 @@ body:
     id: copy_command
     attributes:
       label: CLI Add Command
-      description: The command to add this skill to an AI agent setup.
-      placeholder: e.g. npx skills add szkocot/andrej-karpathy-skills
+      description: "The command to add this skill to an AI agent setup."
+      placeholder: "e.g. npx skills add szkocot/andrej-karpathy-skills"
     validations:
       required: true
 
@@ -58,8 +58,8 @@ body:
     id: description
     attributes:
       label: Short Description
-      description: A brief 1–2 sentence description of what this skill enables or enforces.
-      placeholder: e.g. Core coding guidelines to reduce LLM errors: think before coding, make surgical edits...
+      description: "A brief 1–2 sentence description of what this skill enables or enforces."
+      placeholder: "e.g. Core coding guidelines to reduce LLM errors: think before coding, make surgical edits..."
     validations:
       required: true
 
@@ -68,7 +68,7 @@ body:
     attributes:
       label: Duplicate Check
       options:
-        - label: I searched the skills directory and confirmed this skill is not already listed.
+        - label: "I searched the skills directory and confirmed this skill is not already listed."
           required: true
 
   - type: checkboxes
@@ -76,5 +76,5 @@ body:
     attributes:
       label: Quality Check
       options:
-        - label: I have verified this skill repository is active, working, and helpful for AI coding agents.
+        - label: "I have verified this skill repository is active, working, and helpful for AI coding agents."
           required: true

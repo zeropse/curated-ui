@@ -1,5 +1,5 @@
 name: 🌐 Submit a New Site
-description: Suggest a new UI library, design system, or resource to be added to the directory.
+description: "Suggest a new UI library, design system, or resource to be added to the directory."
 title: "[Site Submission]: "
 labels: ["enhancement", "site-submission"]
 
@@ -13,8 +13,8 @@ body:
     id: site_name
     attributes:
       label: Site Name
-      description: The name of the UI library, design system, or resource.
-      placeholder: e.g. Shadcn UI
+      description: "The name of the UI library, design system, or resource."
+      placeholder: "e.g. Shadcn UI"
     validations:
       required: true
 
@@ -22,8 +22,8 @@ body:
     id: site_url
     attributes:
       label: Site URL
-      description: The official website URL.
-      placeholder: e.g. https://ui.shadcn.com/
+      description: "The official website URL."
+      placeholder: "e.g. https://ui.shadcn.com/"
     validations:
       required: true
 
@@ -31,17 +31,17 @@ body:
     id: category
     attributes:
       label: Category
-      description: Select the category that best fits this resource.
+      description: "Select the category that best fits this resource."
       options:
-        - UI Components
-        - Templates & Blocks
-        - Tools & Utilities
-        - Inspiration
-        - Typography & Colors
-        - Icons & Illustrations
-        - Media & Sounds
-        - Animations
-        - Other
+        - "UI Components"
+        - "Templates & Blocks"
+        - "Tools & Utilities"
+        - "Inspiration"
+        - "Typography & Colors"
+        - "Icons & Illustrations"
+        - "Media & Sounds"
+        - "Animations"
+        - "Other"
     validations:
       required: true
 
@@ -49,15 +49,15 @@ body:
     id: custom_category
     attributes:
       label: Custom Category (if "Other")
-      description: Leave this blank unless you selected **Other** above.
-      placeholder: e.g. Accessibility, Charts, AI Tools
+      description: "Leave this blank unless you selected **Other** above."
+      placeholder: "e.g. Accessibility, Charts, AI Tools"
 
   - type: textarea
     id: description
     attributes:
       label: Short Description
-      description: A brief 1–2 sentence description of what this resource offers.
-      placeholder: e.g. Beautifully designed components that you can copy and paste into your apps.
+      description: "A brief 1–2 sentence description of what this resource offers."
+      placeholder: "e.g. Beautifully designed components that you can copy and paste into your apps."
     validations:
       required: true
 
@@ -66,7 +66,7 @@ body:
     attributes:
       label: Duplicate Check
       options:
-        - label: I searched the directory and confirmed this site is not already listed.
+        - label: "I searched the directory and confirmed this site is not already listed."
           required: true
 
   - type: checkboxes
@@ -74,5 +74,5 @@ body:
     attributes:
       label: Quality Check
       options:
-        - label: I have verified this site is active, accessible, and high-quality.
+        - label: "I have verified this site is active, accessible, and high-quality."
           required: true

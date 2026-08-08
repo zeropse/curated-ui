@@ -1,7 +1,8 @@
 name: 🐛 Bug Report
-description: Report a bug, broken link, command error, or issue with a site, skill, or UI component.
+description: "Report a bug, broken link, command error, or issue with a site, skill, or UI component."
 title: "[Bug]: "
 labels: ["bug"]
+
 body:
   - type: markdown
     attributes:
@@ -12,13 +13,13 @@ body:
     id: area
     attributes:
       label: Affected Area
-      description: Select where the bug or issue occurs.
+      description: "Select where the bug or issue occurs."
       options:
-        - Site Directory (/browse)
-        - Skills Directory (/skills)
-        - Broken Link or Invalid CLI Command
-        - UI Components & Visual Layout
-        - Other
+        - "Site Directory (/browse)"
+        - "Skills Directory (/skills)"
+        - "Broken Link or Invalid CLI Command"
+        - "UI Components & Visual Layout"
+        - "Other"
     validations:
       required: true
 
@@ -26,7 +27,7 @@ body:
     id: description
     attributes:
       label: Describe the bug
-      description: A clear and concise description of what the bug is. (e.g. Broken link for site X or incorrect CLI command for skill Y)
+      description: "A clear and concise description of what the bug is. (e.g. Broken link for site X or incorrect CLI command for skill Y)"
     validations:
       required: true
 
@@ -34,7 +35,7 @@ body:
     id: reproduction
     attributes:
       label: Steps to reproduce
-      description: How do we replicate the issue?
+      description: "How do we replicate the issue?"
     validations:
       required: true
 
@@ -42,4 +43,4 @@ body:
     id: browser
     attributes:
       label: Browser / Environment
-      description: What browser and OS are you using?
+      description: "What browser and OS are you using?"
