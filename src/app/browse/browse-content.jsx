@@ -68,7 +68,7 @@ export function BrowseContent() {
   return (
     <>
       <SearchFilterBar
-        title="Browse the Directory"
+        title="Browse UI Resources"
         searchPlaceholder="Search components, templates, animations... (Ctrl+K)"
         ariaLabel="Search directory"
         categories={siteCategories}

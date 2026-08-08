@@ -68,7 +68,7 @@ export function SkillsContent() {
   return (
     <>
       <SearchFilterBar
-        title="Explore Popular Skills I Use"
+        title="Popular AI Skills I Use"
         searchPlaceholder="Search skills, guidelines, frameworks... (Ctrl+K)"
         ariaLabel="Search skills"
         categories={skillCategories}
