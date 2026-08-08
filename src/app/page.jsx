@@ -1,130 +1,149 @@
 import Link from "next/link";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { IconArrowRight, IconSparkles, IconBolt } from "@tabler/icons-react";
+import {
+  IconSparkles,
+  IconBolt,
+  IconTerminal,
+  IconCompass,
+} from "@tabler/icons-react";
 import { FadeIn } from "@/components/ui/fade-in";
 
 const features = [
   {
-    title: "Curated Quality",
+    title: "Handpicked Quality",
     description:
-      "Every library and tool is hand-tested to ensure it meets modern design standards before being added to the directory.",
+      "Every library, UI kit, and AI skill is manually vetted for modern aesthetics, clean documentation, and active maintenance.",
     icon: IconSparkles,
+  },
+  {
+    title: "AI Agent Ready",
+    description:
+      "Equip coding agents (Claude, Cursor, Antigravity) with repository guidelines, framework rules, and instant CLI commands.",
+    icon: IconTerminal,
   },
   {
     title: "Fast Workflow",
     description:
-      "Stop endlessly bookmarking. Start building. Find the exact tools you need instantly with our categorized search.",
+      "Stop endlessly bookmarking scattered links. Instantly find categorized components, design tools, and developer capabilities.",
     icon: IconBolt,
   },
 ];
 
 export default function Home() {
   return (
-    <main id="main-content" className="min-h-screen relative">
-      {/* Hero Section */}
-      <section className="relative h-[100dvh] flex flex-col items-center justify-between pt-28 pb-8 px-6 md:px-12 max-w-[1400px] mx-auto z-10 overflow-hidden">
-        <div className="flex-1 flex flex-col justify-center w-full items-center">
-          <FadeIn delay={0}>
-            <Badge className="mb-6 p-3 rounded-full border-primary/20 bg-primary/5 text-primary gap-1.5 animate-fade-in">
-              <IconSparkles
-                size={14}
-                className="text-orange-500"
-                aria-hidden="true"
-              />
-              <span>Modern UI Directory</span>
+    <main className="overflow-hidden">
+      {/* Hero */}
+      <section className="px-6 pt-24 md:px-16 md:pt-36">
+        <div className="mx-auto max-w-6xl">
+          <FadeIn delay={0.1} className="text-center">
+            <Badge
+              variant="outline"
+              className="mb-8 rounded-full border-border bg-background p-4 text-xs font-medium"
+            >
+              <IconSparkles className="text-orange-500" />
+              Modern UI Directory
             </Badge>
-          </FadeIn>
 
-          <FadeIn delay={0.1} className="text-center mb-8 md:mb-12">
-            <h1 className="font-heading text-5xl md:text-[5.5rem] font-medium tracking-tighter text-primary leading-[1.05] mb-4">
+            <h1 className="mx-auto max-w-5xl font-heading text-5xl font-medium leading-[0.95] tracking-[-0.06em] md:text-[6.5rem]">
               The curated directory
-              <br className="hidden md:block" /> for the modern web.
+              <br />
+              for the modern web.
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
               Discover a handpicked collection of UI libraries, design systems,
-              and beautiful interfaces. Built for designers and developers.
+              and AI agent skills. Built for designers and developers.
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.2} className="w-full">
+          <FadeIn delay={0.2} className="mt-16">
             <HeroCarousel />
           </FadeIn>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About */}
       <section
         id="about"
-        className="py-24 md:py-32 px-6 md:px-16 bg-neutral-950 text-white rounded-4xl md:rounded-[5rem] mt-12 mb-12 max-w-[1400px] mx-auto relative z-20"
+        className="mx-auto mt-24 max-w-[1400px] overflow-hidden rounded-[3rem] bg-neutral-950 px-6 py-20 text-white md:px-16 md:py-28"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Content */}
-          <FadeIn delay={0.1} className="flex flex-col gap-8">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight">
-              Why Curated<span className="text-orange-500"> UI</span> exists.
-            </h2>
+        <div className="relative mx-auto max-w-6xl">
+          {/* subtle grid */}
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:64px_64px] opacity-30" />
 
-            <div className="flex flex-col gap-6 text-lg md:text-xl text-stone-100/80 leading-relaxed">
-              <p>
-                We were tired of scouring the web for high-quality, modern
-                components that fit today&apos;s design standards.
-              </p>
+          <div className="relative">
+            <FadeIn>
+              <div className="flex flex-col gap-6">
+                <h2 className="mx-auto max-w-4xl text-center font-heading text-4xl font-medium leading-[1.05] tracking-[-0.05em] md:text-7xl">
+                  A better way to discover
+                  <span className="text-orange-500"> what to build with.</span>
+                </h2>
 
-              <p>
-                Curated UI is a continually updated, meticulously curated
-                directory of tools, libraries, and design inspiration to help
-                you build exceptional products faster.
-              </p>
-            </div>
+                <p className="mx-auto max-w-2xl text-center text-lg leading-relaxed text-neutral-400 md:text-xl">
+                  We were tired of scouring the web for high-quality components
+                  and fragmented AI agent guidelines. Curated UI brings modern
+                  design systems and AI coding capabilities into one seamless
+                  directory.
+                </p>
+              </div>
+            </FadeIn>
 
-            <div className="pt-4">
-              <Button
-                render={<Link href="/explore" />}
-                nativeButton={false}
-                size="lg"
-                className="rounded-full bg-white text-neutral-950 hover:bg-stone-100 transition-all motion-safe:hover:scale-105 px-8 py-6 text-lg font-medium group shadow-xl shadow-white/5"
-              >
-                Browse Directory
-                <IconArrowRight
-                  className="ml-2 motion-safe:group-hover:translate-x-1 transition-transform"
-                  data-icon="inline-end"
-                  aria-hidden="true"
-                />
-              </Button>
-            </div>
-          </FadeIn>
+            <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-3">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
 
-          {/* Right Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-            {features.map((feature, i) => {
-              const Icon = feature.icon;
+                return (
+                  <FadeIn key={feature.title} delay={index * 0.1}>
+                    <div className="group flex h-full flex-col justify-between bg-neutral-950 p-8 transition-colors hover:bg-neutral-900">
+                      <div>
+                        <div className="mb-10 flex items-center justify-between">
+                          <div className="flex size-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-orange-400">
+                            <Icon size={22} />
+                          </div>
 
-              return (
-                <FadeIn key={feature.title} delay={0.2 + i * 0.1}>
-                  <Card className="bg-white/5 border-white/10 p-4 rounded-4xl text-white hover:bg-white/10 transition-colors duration-300 shadow-none h-full">
-                    <CardHeader>
-                      <div className="size-12 bg-white/10 rounded-full flex items-center justify-center text-orange-500 mb-2">
-                        <Icon size={24} aria-hidden="true" />
+                          <span className="text-sm font-mono text-white/30">
+                            0{index + 1}
+                          </span>
+                        </div>
+
+                        <h3 className="font-heading text-2xl font-medium tracking-tight">
+                          {feature.title}
+                        </h3>
+
+                        <p className="mt-4 text-sm leading-relaxed text-neutral-400">
+                          {feature.description}
+                        </p>
                       </div>
+                    </div>
+                  </FadeIn>
+                );
+              })}
+            </div>
 
-                      <CardTitle className="text-xl font-heading font-medium tracking-tight">
-                        {feature.title}
-                      </CardTitle>
-                    </CardHeader>
+            <FadeIn delay={0.4}>
+              <div className="mt-10 flex justify-center gap-3">
+                <Button
+                  render={<Link href="/explore" />}
+                  nativeButton={false}
+                  className="rounded-full px-7 py-6"
+                >
+                  <IconCompass className="size-4" />
+                  Browse Directory
+                </Button>
 
-                    <CardContent>
-                      <p className="text-stone-100/70 text-sm leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </FadeIn>
-              );
-            })}
+                <Button
+                  render={<Link href="/skills" />}
+                  nativeButton={false}
+                  variant="outline"
+                  className="rounded-full border-white/15 bg-transparent px-7 py-6 text-white hover:bg-white/10"
+                >
+                  <IconSparkles className="size-4 text-orange-500" />
+                  Explore Skills
+                </Button>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
