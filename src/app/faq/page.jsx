@@ -14,7 +14,8 @@ import {
 
 export const metadata = {
   title: "FAQ - Curated UI",
-  description: "Frequently Asked Questions",
+  description:
+    "Frequently Asked Questions about Curated UI resources and AI agent skills",
 };
 
 export default function FAQPage() {
@@ -22,32 +23,37 @@ export default function FAQPage() {
     {
       question: "What is Curated UI and who is it for?",
       answer:
-        "Curated UI is a meticulously curated directory of modern UI components, libraries, design systems, and web tools. It is built for developers and designers who want to stop endlessly bookmarking scattered resources and start building exceptional products faster.",
+        "Curated UI is a meticulously curated directory of modern UI components, design systems, web tools, and AI agent skills. It is built for developers and designers who want to stop endlessly searching for scattered resources and start building exceptional web products faster with AI agents.",
     },
     {
-      question: "How do you select the libraries that get listed?",
+      question: "What are Popular Skills?",
       answer:
-        "We have strict curation standards. Every resource is manually tested to ensure it meets modern design aesthetics, has good documentation, is actively maintained, and provides genuine value to the web development community.",
+        "Popular Skills are curated capabilities, coding guidelines, and architectural patterns designed for AI coding agents. They equip AI assistants with repository guidelines, framework best practices (Next.js, Tailwind v4, Shadcn UI), and strict coding standards.",
     },
     {
-      question: "How can I submit a new site?",
+      question: "How do you select the libraries and skills that get listed?",
       answer:
-        "We welcome community submissions. To submit a new site, please open an issue on our GitHub repository and ensure that your submission meets our quality guidelines. Each submission is thoroughly reviewed before being added to the directory.",
+        "We enforce strict curation standards. Every UI resource and AI skill is manually reviewed to ensure it meets modern design standards, includes clear documentation, is actively maintained, and provides genuine value. However, as time passes, links may become outdated, removed, or relocated. Unless these changes are reported, we may not be able to update every resource immediately.",
+    },
+    {
+      question: "How can I submit a new site or AI skill?",
+      answer:
+        "We welcome community submissions! To submit a new site or suggest a popular AI skill, click 'Add a Site' or 'Add a Skill' in the footer to open a GitHub issue submission template. Each submission is thoroughly reviewed before being added to the directory.",
     },
     {
       question: "Is this directory free to use?",
       answer:
-        "Yes, Curated UI is completely free and open-source. We believe in keeping high-quality design resources accessible to everyone.",
+        "Yes, Curated UI is completely free and open-source. We believe in keeping high-quality design resources and AI agent skills accessible to everyone.",
     },
     {
-      question: "How often do you add new resources?",
+      question: "How often do you add new resources and skills?",
       answer:
-        "We update the directory on a weekly basis, adding newly discovered gems and reviewing submissions.",
+        "We update the directory regularly, adding newly discovered UI gems, popular AI skills, and reviewing community submissions.",
     },
     {
-      question: "Do you rank or sponsor specific libraries?",
+      question: "Do you rank or sponsor specific libraries or skills?",
       answer:
-        "No. All resources are curated based on merit and quality. We do not accept paid placements yet to ensure the integrity of our curation.",
+        "No. All resources and skills are curated purely based on merit and quality. We do not accept paid placements to maintain curation integrity.",
     },
   ];
 
@@ -63,7 +69,7 @@ export default function FAQPage() {
           </CardTitle>
           <CardDescription className="text-base md:text-lg max-w-2xl mx-auto mt-4">
             Everything you need to know about how we curate, update, and manage
-            the directory.
+            our UI resources and AI agent skills.
           </CardDescription>
         </CardHeader>
 

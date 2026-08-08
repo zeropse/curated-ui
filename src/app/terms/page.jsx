@@ -18,24 +18,24 @@ const termsSections = [
       "By accessing or using Curated UI, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.",
   },
   {
-    title: "2. Use of the Directory",
+    title: "2. Use of the Directory & AI Agent Skills",
     content:
-      "Curated UI is provided as a free, curated resource for developers and designers. You may use the directory to discover, explore, and navigate to third-party tools and libraries. You agree not to use the directory for any unlawful purpose or in any way that could damage, disable, or impair the service.",
+      "Curated UI is provided as a free, curated resource for developers, designers, and AI coding agents. You may use the directory to discover web tools, design systems, and AI agent skills (`npx skills add ...`). You agree not to use the directory for any unlawful purpose or in any way that could damage or impair the service.",
   },
   {
-    title: "3. Intellectual Property",
+    title: "3. Intellectual Property & Skill Repositories",
     content:
-      "The curation, layout, design, and original content of Curated UI are protected by intellectual property rights. However, all third-party logos, trademarks, library names, and website screenshots belong to their respective owners. We do not claim ownership over the external resources we link to.",
+      "The curation, layout, design, and original content of Curated UI are protected by intellectual property rights. However, all third-party logos, trademarks, library names, and AI skill repository sources belong to their respective owners. We do not claim ownership over the external resources or open-source skills we link to.",
   },
   {
     title: "4. Disclaimer of Warranties",
     content:
-      'The directory is provided on an "AS IS" and "AS AVAILABLE" basis. We make no representations or warranties of any kind, express or implied, regarding the accuracy, reliability, or completeness of the curation. We do not endorse or guarantee the quality of any third-party tool listed.',
+      'The directory and skill references are provided on an "AS IS" and "AS AVAILABLE" basis. We make no representations or warranties of any kind, express or implied, regarding the accuracy, reliability, or safety of third-party tools or AI agent skills listed. Always review open-source skill code before executing CLI commands.',
   },
   {
     title: "5. Limitation of Liability",
     content:
-      "In no event shall Curated UI, its creators, or contributors be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the directory, or from any third-party tools you discover through the directory.",
+      "In no event shall Curated UI, its creators, or contributors be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the directory, or from any third-party tools or AI agent skills you discover through the platform.",
   },
   {
     title: "6. Changes to Terms",

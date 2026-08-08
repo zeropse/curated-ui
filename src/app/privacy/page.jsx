@@ -15,7 +15,7 @@ const privacySections = [
   {
     title: "1. Introduction",
     content:
-      'Welcome to Curated UI ("we," "our," or "us"). We respect your privacy and are deeply committed to protecting it. This Privacy Policy explains our practices regarding the collection, use, and disclosure of information that you may provide via our directory.',
+      'Welcome to Curated UI ("we," "our," or "us"). We respect your privacy and are deeply committed to protecting it. This Privacy Policy explains our practices regarding the collection, use, and disclosure of information that you may provide via our directory of UI resources and AI agent skills.',
   },
   {
     title: "2. The Data We Collect",
@@ -23,9 +23,9 @@ const privacySections = [
       "We believe in data minimization. We do not track, collect, or store any personally identifiable information from our visitors. We use simple, privacy-respecting analytics (which do not use cookies or collect IP addresses) solely to understand overall website traffic and usage patterns.",
   },
   {
-    title: "3. Third-Party Links & External Sites",
+    title: "3. Third-Party Links & AI Skill Repositories",
     content:
-      "Our core service is providing links to third-party tools, libraries, and design systems. When you click on these links, you will be directed to that third party&apos;s site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.",
+      "Our core service provides curated links to third-party web tools, design systems, and external GitHub/skills.sh repositories. When you click on these links or copy CLI commands, you may interact with third-party sites or repositories. We strongly advise you to review the Privacy Policy of every external service you visit or install.",
   },
   {
     title: "4. Data Security",

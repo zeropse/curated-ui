@@ -1,0 +1,80 @@
+name: ⚡ Submit a New AI Skill
+description: Suggest a popular developer skill, guideline, or AI agent capability to be added to the directory.
+title: "[Skill Submission]: "
+labels: ["enhancement", "skill-submission"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new AI Agent Skill for Curated UI! We manually review all submissions to ensure high quality and usefulness for AI coding agents.
+
+  - type: input
+    id: skill_name
+    attributes:
+      label: Skill Name
+      description: The name of the AI agent skill or guideline.
+      placeholder: e.g. Karpathy Guidelines
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Select the category that best fits this skill.
+      options:
+        - Coding Guidelines
+        - Next.js & Frameworks
+        - UI & Component Systems
+        - Styling & Design Tokens
+        - Architecture & Patterns
+        - Performance & Optimization
+        - UI & Design UX
+        - Testing & Quality
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source Repository / Path
+      description: The repository identifier or source path on GitHub or skills.sh.
+      placeholder: e.g. szkocot/andrej-karpathy-skills
+    validations:
+      required: true
+
+  - type: input
+    id: copy_command
+    attributes:
+      label: CLI Add Command
+      description: The command to add this skill to an AI agent setup.
+      placeholder: e.g. npx skills add szkocot/andrej-karpathy-skills
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short Description
+      description: A brief 1–2 sentence description of what this skill enables or enforces.
+      placeholder: e.g. Core coding guidelines to reduce LLM errors: think before coding, make surgical edits...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: duplicate_check
+    attributes:
+      label: Duplicate Check
+      options:
+        - label: I searched the skills directory and confirmed this skill is not already listed.
+          required: true
+
+  - type: checkboxes
+    id: quality_check
+    attributes:
+      label: Quality Check
+      options:
+        - label: I have verified this skill repository is active, working, and helpful for AI coding agents.
+          required: true

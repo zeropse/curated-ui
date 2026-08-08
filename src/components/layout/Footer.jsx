@@ -14,6 +14,7 @@ import {
   IconFileText,
   IconArrowUpRight,
   IconSparkles,
+  IconCompass,
 } from "@tabler/icons-react";
 
 const linkClass =
@@ -21,7 +22,8 @@ const linkClass =
 
 const year = new Date().getFullYear();
 
-const informationLinks = [
+const resourceLinks = [
+  { name: "Explore Sites", href: "/explore", icon: IconCompass },
   { name: "Popular Skills", href: "/skills", icon: IconSparkles },
   { name: "FAQ", href: "/faq", icon: IconHelp },
   { name: "Privacy Policy", href: "/privacy", icon: IconShieldLock },
@@ -33,6 +35,11 @@ const contributeLinks = [
     name: "Add a Site",
     href: "https://github.com/zeropse/ui-zeropse/issues/new?template=site_submission.yml",
     icon: IconPlus,
+  },
+  {
+    name: "Add a Skill",
+    href: "https://github.com/zeropse/ui-zeropse/issues/new?template=skill_submission.yml",
+    icon: IconSparkles,
   },
   {
     name: "Report a Bug",
@@ -81,19 +88,19 @@ export function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed text-neutral-500">
-              A carefully curated collection of modern UI libraries, design
-              systems, and typography inspiration. Everything you need to build
-              beautiful interfaces.
+              A carefully curated collection of modern UI libraries, AI agent
+              skills, design systems, and developer tools. Everything you need
+              to build exceptional products with AI.
             </p>
           </div>
 
           <div className="flex flex-col gap-4">
             <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-500">
-              Information
+              Resources
             </h3>
 
             <ul className="flex flex-col gap-3">
-              {informationLinks.map((link) => (
+              {resourceLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
