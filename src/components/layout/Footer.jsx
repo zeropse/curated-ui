@@ -17,9 +17,6 @@ import {
   IconCompass,
 } from "@tabler/icons-react";
 
-const linkClass =
-  "text-sm text-stone-100 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded-sm";
-
 const year = new Date().getFullYear();
 
 const resourceLinks = [
@@ -64,21 +61,30 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-32 rounded-t-4xl bg-neutral-950 px-6 pt-24 pb-12 text-white md:rounded-t-[5rem] md:px-12">
+    <footer className="mt-32 rounded-t-4xl border-t border-border/40 bg-background/80 supports-[backdrop-filter]:bg-background/60 backdrop-blur-xl px-6 pt-24 pb-12 text-foreground md:rounded-t-[5rem] md:px-12 shadow-sm">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 grid grid-cols-2 gap-12 md:grid-cols-4">
           <div className="col-span-2 flex flex-col items-center gap-4 text-center md:col-span-2 md:items-start md:pr-8 md:text-left">
             <Link
               href="/"
-              className="font-heading inline-flex items-center gap-1 rounded-sm text-3xl font-medium tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              className="font-heading inline-flex items-center gap-1 rounded-sm text-3xl font-medium tracking-tight text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
             >
-              <Image
-                src="/icon0.svg"
-                alt="Curated UI Logo"
-                width={50}
-                height={50}
-                className="rounded-sm"
-              />
+              <div className="relative w-12 h-12 flex-shrink-0">
+                <Image
+                  src="/icon1.png"
+                  alt="Curated UI Logo"
+                  width={50}
+                  height={50}
+                  className="rounded-sm object-contain dark:hidden"
+                />
+                <Image
+                  src="/icon0.svg"
+                  alt="Curated UI Logo"
+                  width={50}
+                  height={50}
+                  className="rounded-sm object-contain hidden dark:block"
+                />
+              </div>
               <span>
                 Curated<span className="text-orange-500"> UI</span>
               </span>
@@ -87,7 +93,7 @@ export function Footer() {
               </span>
             </Link>
 
-            <p className="text-sm leading-relaxed text-neutral-500">
+            <p className="text-sm leading-relaxed text-muted-foreground/90 max-w-sm">
               A carefully curated collection of modern UI libraries, AI agent
               skills, design systems, and developer tools. Everything you need
               to build exceptional products with AI.
@@ -95,19 +101,25 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-500">
+            <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground/70">
               Resources
             </h3>
 
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-2.5">
               {resourceLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className={`${linkClass} flex items-center gap-2 hover:underline`}
+                    className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 py-0.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
-                    <link.icon size={16} aria-hidden="true" />
-                    {link.name}
+                    <link.icon
+                      size={16}
+                      className="text-muted-foreground/70 group-hover:text-primary transition-colors"
+                      aria-hidden="true"
+                    />
+                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                      {link.name}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -115,22 +127,32 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-500">
+            <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground/70">
               Contribute
             </h3>
 
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-2.5">
               {contributeLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${linkClass} flex items-center gap-2 hover:underline`}
+                    className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 py-0.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
-                    <link.icon size={16} aria-hidden="true" />
-                    {link.name}
-                    <IconArrowUpRight size={16} aria-hidden="true" />
+                    <link.icon
+                      size={16}
+                      className="text-muted-foreground/70 group-hover:text-primary transition-colors"
+                      aria-hidden="true"
+                    />
+                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+                      {link.name}
+                    </span>
+                    <IconArrowUpRight
+                      size={14}
+                      className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-muted-foreground group-hover:text-primary"
+                      aria-hidden="true"
+                    />
                   </Link>
                 </li>
               ))}
@@ -138,22 +160,26 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-8 md:flex-row">
-          <p className="text-sm text-stone-100">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 md:flex-row">
+          <p className="text-xs font-mono text-muted-foreground/80">
             © {year} Curated UI. All rights reserved.
           </p>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             {socialLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-sm text-sm text-stone-100 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/60 border border-transparent hover:border-border/50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
-                <link.icon size={16} aria-hidden="true" />
-                {link.name}
+                <link.icon
+                  size={15}
+                  className="text-muted-foreground group-hover:text-primary transition-colors"
+                  aria-hidden="true"
+                />
+                <span>{link.name}</span>
               </Link>
             ))}
           </div>
