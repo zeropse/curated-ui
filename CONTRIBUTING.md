@@ -1,49 +1,148 @@
 # Contributing to Curated UI
 
-First off, thanks for taking the time to contribute! 🎉
+Thanks for helping improve Curated UI.
 
-The following is a set of guidelines for contributing to Curated UI.
+Contributions are welcome for new UI resources, AI agent skills, bug fixes, and improvements to the codebase.
 
-## Adding a New Site
+## Adding a UI Resource
 
-Curated UI is designed to be easily extensible. If you found a great UI library, design system, or web tool that you think belongs here, we'd love to add it!
+Curated UI collects useful resources including UI libraries, design systems, component collections, icon sets, animation tools, and other frontend resources.
 
-### How to Submit
+Before submitting a resource, make sure it:
 
-**Option 1: Open an Issue (Easiest)**
+- Is publicly available
+- Provides value to developers or designers
+- Fits an existing category
+- Does not duplicate an existing entry
 
-1. Go to the [Issues](../../issues) tab.
-2. Click **New Issue** and select the **Site Submission** template.
-3. Fill out the details (Name, URL, Category, Description). We will review it and add it to the directory.
+### Submit Through an Issue
 
-**Option 2: Open a Pull Request (For Developers)**
+For simple submissions, open a GitHub issue with:
+
+- **Name** — Resource name
+- **URL** — Direct link to the resource
+- **Category** — UI Components, Design Systems, Animation, Typography, Icons, etc.
+- **Description** — A short explanation of what makes it useful
+
+### Submit Through a Pull Request
 
 1. Fork the repository.
-2. Open `src/data/sites.js`.
-3. Add your new site to the `sites` array. Make sure you include a unique `imageSlug`:
-   ```javascript
-   {
-     name: "Example UI",
-     url: "https://exampleui.com",
-     category: "Select the category that best describes what this site offers.",
-     description: "A brief description of what this site offers.",
-     imageSlug: "example-ui",
-   }
-   ```
-4. Run the automated image fetcher script in your terminal to capture the screenshot:
-   ```bash
-   bun run fetch-images
-   ```
-   _(This script uses Puppeteer to automatically visit the site and take a high-quality screenshot, saving it directly to `/public/images/sites/`)_
-5. Commit your changes (including the new image in `public/images/sites/`) and push to your fork.
-6. Open a Pull Request!
+2. Create a new branch.
+3. Add the resource to:
 
-## Local Development
+```text
+src/data/sites.js
+```
 
-If you are contributing code changes to the site itself:
+Example:
 
-1. Clone the repo and run `bun install`.
-2. Run `bun run fetch-images` to ensure you have all the local screenshots.
-3. Start the dev server with `bun dev`.
+```javascript
+{
+  name: "Resource Name",
+  url: "https://example.com",
+  category: "UI Components",
+  description: "A brief description of the resource.",
+  imageSlug: "resource-name",
+}
+```
 
-We use **Tailwind CSS v4** and **shadcn/ui** for styling and components. Please ensure your contributions match the existing design language and accessibility standards.
+1. Generate the screenshot:
+
+```bash
+bun run fetch-images
+```
+
+5. Commit the generated image:
+
+```text
+public/images/resource-name.jpg
+```
+
+6. Open a pull request.
+
+## Adding an AI Agent Skill
+
+AI agent skills should provide useful workflows, guidelines, or conventions for AI-assisted development.
+
+Add new skills in:
+
+```text
+src/data/skills.js
+```
+
+Example:
+
+```javascript
+{
+  name: "Skill Name",
+  category: "Category",
+  description: "Description of the workflow or guidelines.",
+  source: "author/repository",
+  url: "https://skills.sh/author/repository",
+  copyCommand: "npx skills add author/repository",
+}
+```
+
+Commit your changes and open a pull request.
+
+## Code Contributions
+
+Bug fixes, features, performance improvements, and UI changes are welcome.
+
+### Setup
+
+Clone your fork:
+
+```bash
+git clone https://github.com/your-username/curated-ui.git
+
+cd curated-ui
+```
+
+Install dependencies:
+
+```bash
+bun install
+```
+
+Start the development server:
+
+```bash
+bun dev
+```
+
+## Development Guidelines
+
+### Framework
+
+- Use Next.js App Router patterns.
+- Follow React 19 conventions.
+
+### Styling
+
+- Use Tailwind CSS v4 utilities where possible.
+- Avoid unnecessary custom CSS.
+- Keep components consistent with the existing design system.
+
+### Components
+
+- Reuse existing `shadcn/ui` components when possible.
+- Extend existing components before introducing new patterns.
+
+### Before Opening a Pull Request
+
+Run:
+
+```bash
+bun run lint
+```
+
+Make sure:
+
+- The project builds successfully.
+- No lint errors remain.
+- Changes follow existing project conventions.
+
+## License
+
+By contributing to Curated UI, you agree that your contributions will be licensed under the project's [MIT License](LICENSE).
