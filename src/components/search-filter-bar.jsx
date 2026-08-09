@@ -22,6 +22,9 @@ export function SearchFilterBar({
   searchQueryParamKey = "q",
   categoryQueryParamKey = "category",
   defaultCategory = "All",
+  totalResults,
+  itemSingular = "item",
+  itemPlural = "items",
   className,
 }) {
   const inputRef = useRef(null);
@@ -126,7 +129,7 @@ export function SearchFilterBar({
 
       {/* Sticky Categories Bar */}
       {categories && categories.length > 0 && (
-        <div className="sticky top-16 md:top-20 z-40 w-full mb-12">
+        <div className="sticky top-16 md:top-20 z-40 w-full mb-8">
           <div className="w-full bg-background/80 supports-[backdrop-filter]:bg-background/60 backdrop-blur-xl border-y border-border/40 shadow-sm py-2">
             <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative">
               <ScrollArea className="w-full">
@@ -149,6 +152,42 @@ export function SearchFilterBar({
               <div className="absolute top-0 right-0 bottom-0 w-8 md:w-12 bg-gradient-to-l from-background to-transparent pointer-events-none" />
               <div className="absolute top-0 left-0 bottom-0 w-8 md:w-12 bg-gradient-to-r from-background to-transparent pointer-events-none" />
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Results Counter Bar */}
+      {typeof totalResults === "number" && (
+        <div className="px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 sm:gap-4 pb-3 border-b border-border/40 text-sm text-muted-foreground text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-1.5 flex-wrap">
+              <span>Showing</span>
+              <span className="font-semibold text-foreground font-mono bg-muted/60 px-2 py-0.5 rounded-md text-xs">
+                {totalResults}
+              </span>
+              <span>{totalResults === 1 ? itemSingular : itemPlural}</span>
+            </div>
+
+            {(searchQuery || activeCategory !== defaultCategory) && (
+              <div className="text-xs text-muted-foreground/80 flex items-center justify-center sm:justify-end gap-1.5 flex-wrap">
+                {activeCategory !== defaultCategory && (
+                  <span>
+                    in{" "}
+                    <span className="font-medium text-foreground">
+                      {activeCategory}
+                    </span>
+                  </span>
+                )}
+                {searchQuery && (
+                  <span>
+                    {activeCategory !== defaultCategory ? "matching" : "for"}{" "}
+                    <span className="font-medium text-foreground">
+                      &quot;{searchQuery}&quot;
+                    </span>
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}
