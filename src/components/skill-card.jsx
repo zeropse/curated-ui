@@ -101,7 +101,7 @@ export function SkillCard({ skill }) {
             </div>
           </div>
 
-          <p className="truncate font-mono text-xs text-muted-foreground/80 mb-2">
+          <p className="font-mono text-xs text-muted-foreground/80 mb-2 break-all">
             {skill.source}
           </p>
 
