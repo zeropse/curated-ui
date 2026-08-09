@@ -29,27 +29,24 @@ export function SiteCard({ site, priority = false }) {
         className="
           h-full
           p-2.5
-          border border-border/40
-          bg-background
-          shadow-sm
+          border-none
+          bg-card
+          shadow-2xs
           transition-all
-          duration-500
-          animate-in fade-in zoom-in-95
-          motion-safe:hover:-translate-y-2
-          hover:border-primary/20
-          hover:shadow-xl
-          dark:hover:shadow-none
+          duration-300
+          hover:border-accent/50
+          hover:shadow-md
           flex
           flex-col
         "
       >
         {/* Inset Image Frame */}
-        <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-muted/30">
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted/40 border border-border/40">
           {site.category && (
-            <div className="absolute top-3 left-3 z-10 pointer-events-none">
+            <div className="absolute top-2.5 left-2.5 z-10 pointer-events-none">
               <Badge
                 variant="outline"
-                className="bg-muted/80 h-auto px-2.5 py-1 text-[11px] font-semibold backdrop-blur-sm"
+                className="bg-background/90 text-foreground border-border/60 h-auto px-2.5 py-0.5 font-mono text-[10px] font-medium backdrop-blur-md"
               >
                 {site.category}
               </Badge>
@@ -61,7 +58,7 @@ export function SiteCard({ site, priority = false }) {
           )}
 
           {hasError ? (
-            <div className="flex h-full w-full items-center justify-center bg-primary/5 text-primary/40 text-6xl font-heading">
+            <div className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground text-4xl font-heading font-semibold">
               {site.name.substring(0, 2).toUpperCase()}
             </div>
           ) : (
@@ -72,7 +69,7 @@ export function SiteCard({ site, priority = false }) {
               priority={priority}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={cn(
-                "object-cover object-top transition-transform duration-700 ease-out motion-safe:group-hover:scale-105",
+                "object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]",
                 imageLoaded ? "opacity-100" : "opacity-0",
               )}
               onLoad={() => setImageLoaded(true)}
@@ -82,17 +79,18 @@ export function SiteCard({ site, priority = false }) {
         </div>
 
         {/* Content Section Below Image */}
-        <CardHeader className="px-4 py-5 flex flex-col gap-1.5 flex-grow border-0">
-          <div className="flex items-start justify-between gap-4 w-full">
+        <CardHeader className="px-3.5 py-4 flex flex-col gap-1.5 flex-grow border-0">
+          <div className="flex items-start justify-between gap-3 w-full">
             <CardTitle
               className="
-                text-2xl
+                text-xl
                 font-heading
-                font-medium
+                font-semibold
                 tracking-tight
+                text-card-foreground
                 transition-colors
-                duration-300
-                group-hover:text-primary
+                duration-200
+                group-hover:text-accent
               "
             >
               {site.name}
@@ -101,31 +99,31 @@ export function SiteCard({ site, priority = false }) {
             {/* Hover Arrow Component */}
             <div
               className="
-                flex size-8 shrink-0 items-center justify-center
+                flex size-7 shrink-0 items-center justify-center
                 rounded-full
-                bg-muted/50
+                bg-muted
                 text-muted-foreground
                 transition-all
-                duration-300
-                group-hover:bg-primary
-                group-hover:text-primary-foreground
+                duration-200
+                group-hover:bg-accent
+                group-hover:text-accent-foreground
                 opacity-0
-                -translate-x-2
+                -translate-x-1
                 group-hover:opacity-100
                 group-hover:translate-x-0
               "
             >
-              <IconArrowUpRight size={16} stroke={2.5} aria-hidden="true" />
+              <IconArrowUpRight size={14} stroke={2.5} aria-hidden="true" />
               <span className="sr-only">Visit {site.name}</span>
             </div>
           </div>
 
           <CardDescription
             className="
-              text-sm
+              text-xs
               leading-relaxed
               line-clamp-2
-              text-muted-foreground/80
+              text-muted-foreground
             "
           >
             {site.description}
@@ -138,17 +136,17 @@ export function SiteCard({ site, priority = false }) {
 
 export function SiteCardSkeleton() {
   return (
-    <Card className="h-full w-full max-w-[400px] p-2.5 border border-border/40 bg-background shadow-sm flex flex-col">
-      <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-muted/30">
+    <Card className="h-full w-full max-w-[400px] p-2.5 border border-border/80 bg-card shadow-2xs flex flex-col">
+      <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted/40">
         <Skeleton className="absolute inset-0 h-full w-full" />
       </div>
-      <CardHeader className="px-4 py-5 flex flex-col gap-3 flex-grow border-0">
+      <CardHeader className="px-3.5 py-4 flex flex-col gap-3 flex-grow border-0">
         <div className="flex items-start justify-between gap-4 w-full">
-          <Skeleton className="h-8 w-2/3" />
+          <Skeleton className="h-6 w-2/3" />
         </div>
-        <div className="flex flex-col gap-2 mt-2">
-          <Skeleton className="h-4 w-full" />
-          <Skeleton className="h-4 w-4/5" />
+        <div className="flex flex-col gap-2 mt-1">
+          <Skeleton className="h-3.5 w-full" />
+          <Skeleton className="h-3.5 w-4/5" />
         </div>
       </CardHeader>
     </Card>

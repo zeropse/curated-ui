@@ -5,6 +5,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
   title: "Terms of Service - Curated UI",
@@ -48,15 +49,21 @@ export default function TermsPage() {
   return (
     <main
       id="main-content"
-      className="max-w-4xl mx-auto px-4 py-24 md:py-32 w-full mt-10"
+      className="max-w-4xl mx-auto px-4 py-28 md:py-36 w-full"
     >
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-4xl md:text-5xl">
+      <Card className="border border-border/80 bg-card shadow-2xs">
+        <CardHeader className="text-center pt-8 pb-4">
+          <Badge
+            variant="outline"
+            className="mx-auto mb-4 font-mono text-xs text-accent border-accent/30 bg-accent/5"
+          >
+            TERMS & CONDITIONS
+          </Badge>
+          <CardTitle className="text-3xl md:text-5xl font-heading font-semibold tracking-tight text-foreground">
             Terms of Service
           </CardTitle>
 
-          <CardDescription>
+          <CardDescription className="font-mono text-xs text-muted-foreground mt-2">
             Effective Date:{" "}
             {new Date().toLocaleDateString("en-US", {
               month: "long",
@@ -66,17 +73,17 @@ export default function TermsPage() {
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="flex flex-col gap-8">
+        <CardContent className="flex flex-col gap-8 pt-4 pb-8 px-6 md:px-10">
           {termsSections.map((section, index) => (
             <section
               key={section.title}
-              className={index !== 0 ? "border-t pt-8" : ""}
+              className={index !== 0 ? "border-t border-border/60 pt-6" : ""}
             >
-              <h2 className="text-xl font-semibold tracking-tight mb-3">
+              <h2 className="text-lg md:text-xl font-heading font-semibold tracking-tight text-foreground mb-2">
                 {section.title}
               </h2>
 
-              <p className="text-muted-foreground leading-7">
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
                 {section.content}
               </p>
             </section>

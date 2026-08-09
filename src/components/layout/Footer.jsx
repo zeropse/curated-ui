@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { version } from "../../../package.json";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   IconHelp,
   IconPlus,
@@ -61,126 +63,139 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-32 rounded-t-4xl border-t border-border/40 bg-background/80 supports-[backdrop-filter]:bg-background/60 backdrop-blur-xl px-6 pt-24 pb-12 text-foreground md:rounded-t-[5rem] md:px-12 shadow-sm">
+    <footer className="mt-32 rounded-t-4xl border-t border-border/60 bg-card/60 backdrop-blur-xl px-6 pt-24 pb-12 text-foreground md:rounded-t-[4rem] md:px-12">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16 grid grid-cols-2 gap-12 md:grid-cols-4">
-          <div className="col-span-2 flex flex-col items-center gap-4 text-center md:col-span-2 md:items-start md:pr-8 md:text-left">
+        <div className="mb-16 grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+          <div className="col-span-1 sm:col-span-2 flex flex-col items-center text-center sm:items-start sm:text-left gap-4 md:pr-8">
             <Link
               href="/"
-              className="font-heading inline-flex items-center gap-1 rounded-sm text-3xl font-medium tracking-tight text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+              className="font-heading inline-flex items-center justify-center sm:justify-start gap-2 text-2xl font-semibold tracking-tight text-foreground hover:opacity-90 transition-opacity"
             >
-              <div className="relative w-12 h-12 flex-shrink-0">
+              <div className="relative w-10 h-10 flex-shrink-0">
                 <Image
                   src="/icon1.png"
                   alt="Curated UI Logo"
-                  width={50}
-                  height={50}
+                  width={40}
+                  height={40}
                   className="rounded-sm object-contain dark:hidden"
                 />
                 <Image
                   src="/icon0.svg"
                   alt="Curated UI Logo"
-                  width={50}
-                  height={50}
+                  width={40}
+                  height={40}
                   className="rounded-sm object-contain hidden dark:block"
                 />
               </div>
               <span>
-                Curated<span className="text-orange-500"> UI</span>
+                Curated<span className="text-accent"> UI</span>
               </span>
-              <span className="ml-1.5 rounded-full bg-orange-500/10 px-2.5 py-0.5 font-mono text-xs font-semibold text-orange-500 border border-orange-500/20">
+              <Badge
+                variant="outline"
+                className="ml-1 font-mono text-[10px] font-medium border-accent/30 text-accent bg-accent/5 px-2 py-0.5 rounded-full"
+              >
                 v{version}
-              </span>
+              </Badge>
             </Link>
 
-            <p className="text-sm leading-relaxed text-muted-foreground/90 max-w-sm">
-              A carefully curated collection of modern UI libraries, AI agent
-              skills, design systems, and developer tools. Everything you need
-              to build exceptional products with AI.
+            <p className="text-sm leading-relaxed text-muted-foreground max-w-sm">
+              A handpicked directory of modern UI component libraries, design
+              systems, and AI agent skills for developers and designers building
+              modern web apps.
             </p>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground/70">
+          <div className="flex flex-col items-center sm:items-start gap-4">
+            <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
               Resources
             </h3>
 
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col items-center sm:items-start gap-1.5 w-full">
               {resourceLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 py-0.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                <li
+                  key={link.name}
+                  className="w-full flex justify-center sm:justify-start"
+                >
+                  <Button
+                    render={<Link href={link.href} />}
+                    nativeButton={false}
+                    variant="ghost"
+                    className="justify-center sm:justify-start h-8 px-2 text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 gap-2 w-full max-w-xs sm:max-w-none"
                   >
                     <link.icon
-                      size={16}
-                      className="text-muted-foreground/70 group-hover:text-primary transition-colors"
-                      aria-hidden="true"
+                      size={15}
+                      className="text-muted-foreground/70 shrink-0"
                     />
-                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                      {link.name}
-                    </span>
-                  </Link>
+                    <span>{link.name}</span>
+                  </Button>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground/70">
+          <div className="flex flex-col items-center sm:items-start gap-4">
+            <h3 className="font-mono text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
               Contribute
             </h3>
 
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col items-center sm:items-start gap-1.5 w-full">
               {contributeLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 py-0.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                <li
+                  key={link.name}
+                  className="w-full flex justify-center sm:justify-start"
+                >
+                  <Button
+                    render={
+                      <Link
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    }
+                    nativeButton={false}
+                    variant="ghost"
+                    className="justify-center sm:justify-start h-8 px-2 text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 gap-2 w-full max-w-xs sm:max-w-none group"
                   >
                     <link.icon
-                      size={16}
-                      className="text-muted-foreground/70 group-hover:text-primary transition-colors"
-                      aria-hidden="true"
+                      size={15}
+                      className="text-muted-foreground/70 shrink-0"
                     />
-                    <span className="transition-transform duration-200 group-hover:translate-x-0.5">
-                      {link.name}
-                    </span>
+                    <span className="truncate">{link.name}</span>
                     <IconArrowUpRight
-                      size={14}
-                      className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-muted-foreground group-hover:text-primary"
-                      aria-hidden="true"
+                      size={13}
+                      className="ml-1 sm:ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground"
                     />
-                  </Link>
+                  </Button>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 md:flex-row">
-          <p className="text-xs font-mono text-muted-foreground/80">
-            © {year} Curated UI. All rights reserved.
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 sm:flex-row text-center sm:text-left">
+          <p className="text-xs font-mono text-muted-foreground">
+            © {year} Curated UI. Built for the modern web.
           </p>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center gap-1.5">
             {socialLinks.map((link) => (
-              <Link
+              <Button
                 key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/60 border border-transparent hover:border-border/50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                render={
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                }
+                nativeButton={false}
+                variant="outline"
+                size="sm"
+                className="h-8 px-3 text-xs gap-1.5 rounded-full border-border/60 hover:bg-muted/60"
               >
-                <link.icon
-                  size={15}
-                  className="text-muted-foreground group-hover:text-primary transition-colors"
-                  aria-hidden="true"
-                />
+                <link.icon size={14} className="text-muted-foreground" />
                 <span>{link.name}</span>
-              </Link>
+              </Button>
             ))}
           </div>
         </div>

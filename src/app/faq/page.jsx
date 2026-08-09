@@ -11,6 +11,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
   title: "FAQ - Curated UI",
@@ -60,31 +61,37 @@ export default function FAQPage() {
   return (
     <main
       id="main-content"
-      className="max-w-4xl mx-auto px-4 py-24 md:py-32 w-full mt-10"
+      className="max-w-4xl mx-auto px-4 py-28 md:py-36 w-full"
     >
-      <Card>
-        <CardHeader className="text-center">
-          <CardTitle className="text-4xl md:text-5xl">
+      <Card className="border border-border/80 bg-card shadow-2xs">
+        <CardHeader className="text-center pt-8 pb-4">
+          <Badge
+            variant="outline"
+            className="mx-auto mb-4 font-mono text-xs text-accent border-accent/30 bg-accent/5"
+          >
+            SUPPORT & FAQ
+          </Badge>
+          <CardTitle className="text-3xl md:text-5xl font-heading font-semibold tracking-tight text-foreground">
             Frequently Asked Questions
           </CardTitle>
-          <CardDescription className="text-base md:text-lg max-w-2xl mx-auto mt-4">
+          <CardDescription className="text-sm md:text-base max-w-2xl mx-auto mt-3 text-muted-foreground leading-relaxed">
             Everything you need to know about how we curate, update, and manage
             our UI resources and AI agent skills.
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="pt-6">
+        <CardContent className="pt-4 pb-8 px-6 md:px-10">
           <Accordion className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-b border-border/50 last:border-0 py-2"
+                className="border-b border-border/60 last:border-0 py-1"
               >
-                <AccordionTrigger className="text-left font-heading font-medium text-lg md:text-xl hover:text-primary/80 transition-colors">
+                <AccordionTrigger className="text-left font-heading font-semibold text-base md:text-lg text-foreground hover:text-accent transition-colors">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base md:text-lg leading-relaxed pt-2 pb-6">
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed pt-1 pb-4">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
