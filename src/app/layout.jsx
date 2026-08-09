@@ -1,5 +1,4 @@
 import { Inter, Inter_Tight } from "next/font/google";
-
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { cn } from "@/lib/utils";
@@ -13,6 +12,14 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-heading",
 });
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+  ],
+  colorScheme: "dark light",
+};
 
 export const metadata = {
   metadataBase: new URL("https://ui.zeropse.me"),

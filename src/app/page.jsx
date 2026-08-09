@@ -69,7 +69,7 @@ export default function Home() {
   };
 
   return (
-    <main className="overflow-hidden">
+    <main id="main-content" className="overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

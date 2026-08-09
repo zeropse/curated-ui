@@ -50,15 +50,8 @@ export function BrowseContent() {
     defaultValue: "",
   });
 
-  const [shuffledAll, setShuffledAll] = React.useState(sites);
-
-  React.useEffect(() => {
-    if (activeCategory === "All") {
-      setShuffledAll(shuffleArray(sites));
-    }
-  }, [activeCategory]);
-
-  const sourceSites = activeCategory === "All" ? shuffledAll : sites;
+  const shuffledSites = React.useMemo(() => shuffleArray(sites), []);
+  const sourceSites = activeCategory === "All" ? shuffledSites : sites;
 
   const filteredSites = filterSites(sourceSites, {
     category: activeCategory,

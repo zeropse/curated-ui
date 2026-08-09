@@ -50,15 +50,8 @@ export function SkillsContent() {
     defaultValue: "",
   });
 
-  const [shuffledAll, setShuffledAll] = React.useState(skills);
-
-  React.useEffect(() => {
-    if (activeCategory === "All") {
-      setShuffledAll(shuffleArray(skills));
-    }
-  }, [activeCategory]);
-
-  const sourceSkills = activeCategory === "All" ? shuffledAll : skills;
+  const shuffledSkills = React.useMemo(() => shuffleArray(skills), []);
+  const sourceSkills = activeCategory === "All" ? shuffledSkills : skills;
 
   const filteredSkills = filterSkills(sourceSkills, {
     category: activeCategory,

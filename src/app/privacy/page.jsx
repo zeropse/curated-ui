@@ -59,12 +59,7 @@ export default function PrivacyPage() {
           </CardTitle>
 
           <CardDescription className="font-mono text-xs text-muted-foreground mt-2">
-            Effective Date:{" "}
-            {new Date().toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
+            Effective Date: August 9, 2026
           </CardDescription>
         </CardHeader>
 
