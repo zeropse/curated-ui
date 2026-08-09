@@ -163,6 +163,71 @@ export const skills = [
     description:
       "Modern JavaScript idioms, functional programming patterns, async handling, and clean code principles.",
   },
+  {
+    id: "find-skills",
+    name: "Find Skills",
+    category: "Architecture & Patterns",
+    source: "vercel-labs/skills/find-skills",
+    copyCommand:
+      "npx skills add https://github.com/vercel-labs/skills --skill find-skills",
+    url: "https://www.skills.sh/vercel-labs/skills/find-skills",
+    description:
+      "Helps discover and install specialized agent skills from the open ecosystem when users need extended capabilities.",
+  },
+  {
+    id: "impeccable",
+    name: "Impeccable",
+    category: "UI & Design UX",
+    source: "pbakaus/impeccable/impeccable",
+    copyCommand:
+      "npx skills add https://github.com/pbakaus/impeccable --skill impeccable",
+    url: "https://www.skills.sh/pbakaus/impeccable/impeccable",
+    description:
+      "Frontend design and iteration engine for production-grade interfaces, visual hierarchy, typography, and motion.",
+  },
+  {
+    id: "emil-design-eng",
+    name: "Emil Design Engineering",
+    category: "UI & Design UX",
+    source: "emilkowalski/skills/emil-design-eng",
+    copyCommand:
+      "npx skills add https://github.com/emilkowalski/skills --skill emil-design-eng",
+    url: "https://www.skills.sh/emilkowalski/skills/emil-design-eng",
+    description:
+      "Encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and craft details.",
+  },
+  {
+    id: "apple-design",
+    name: "Apple Design",
+    category: "UI & Design UX",
+    source: "emilkowalski/skills/apple-design",
+    copyCommand:
+      "npx skills add https://github.com/emilkowalski/skills --skill apple-design",
+    url: "https://www.skills.sh/emilkowalski/skills/apple-design",
+    description:
+      "Apple's approach to interface design and fluid, physical motion, translated for web applications.",
+  },
+  {
+    id: "taste-skill",
+    name: "Taste Skill",
+    category: "UI & Design UX",
+    source: "leonxlnx/taste-skill",
+    copyCommand: "npx skills add leonxlnx/taste-skill",
+    url: "https://www.tasteskill.dev/",
+    description:
+      "The anti-slop frontend framework for AI coding agents to create distinctive, high-quality user interfaces.",
+  },
+  {
+    id: "task-observer",
+    name: "Task Observer",
+    category: "Architecture & Patterns",
+    source: "rebelytics/one-skill-to-rule-them-all/task-observer",
+    copyCommand:
+      "npx skills add https://github.com/rebelytics/one-skill-to-rule-them-all --skill task-observer",
+    url: "https://www.skills.sh/rebelytics/one-skill-to-rule-them-all/task-observer",
+    description:
+      "Monitors task execution for skill improvement opportunities, capturing patterns and workflow insights during multi-step work.",
+  },
 ];
 
 export const skillCategories = [
