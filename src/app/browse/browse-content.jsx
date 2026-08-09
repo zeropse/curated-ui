@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "motion/react";
 import { SiteCard } from "@/components/site-card";
 import { SearchFilterBar } from "@/components/search-filter-bar";
 import { sites, siteCategories } from "@/data/sites";
@@ -29,13 +30,17 @@ const virtuosoComponents = {
     </div>
   )),
   Item: React.forwardRef(({ children, ...props }, ref) => (
-    <div
+    <motion.div
       {...props}
       ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
       className="w-full max-w-[400px] flex justify-center"
     >
       {children}
-    </div>
+    </motion.div>
   )),
 };
 
@@ -60,39 +65,51 @@ export function BrowseContent() {
 
   return (
     <>
-      <SearchFilterBar
-        title="Browse UI Resources"
-        searchPlaceholder="Search components, templates, animations... (Ctrl+K)"
-        ariaLabel="Search directory"
-        categories={siteCategories}
-        totalResults={filteredSites.length}
-        itemSingular="resource"
-        itemPlural="resources"
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <SearchFilterBar
+          title="Browse UI Resources"
+          searchPlaceholder="Search components, templates, animations... (Ctrl+K)"
+          ariaLabel="Search directory"
+          categories={siteCategories}
+          totalResults={filteredSites.length}
+          itemSingular="resource"
+          itemPlural="resources"
+        />
+      </motion.div>
 
       <section className="px-6 md:px-12 max-w-[1400px] mx-auto relative z-10 min-h-[50vh]">
         {filteredSites.length === 0 ? (
-          <Empty className="py-32 border-none">
-            <EmptyMedia variant="icon" className="size-16 rounded-2xl mb-2">
-              <IconSearch className="size-8" />
-            </EmptyMedia>
-            <EmptyHeader>
-              <EmptyTitle className="text-xl">No sites found</EmptyTitle>
-              <EmptyDescription>
-                Try adjusting your search or selecting a different category.
-              </EmptyDescription>
-            </EmptyHeader>
-            <div className="flex justify-center">
-              <Button
-                onClick={() => {
-                  setSearchQuery(null);
-                  setActiveCategory("All");
-                }}
-              >
-                Clear Filters
-              </Button>
-            </div>
-          </Empty>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <Empty className="py-32 border-none">
+              <EmptyMedia variant="icon" className="size-16 rounded-2xl mb-2">
+                <IconSearch className="size-8" />
+              </EmptyMedia>
+              <EmptyHeader>
+                <EmptyTitle className="text-xl">No sites found</EmptyTitle>
+                <EmptyDescription>
+                  Try adjusting your search or selecting a different category.
+                </EmptyDescription>
+              </EmptyHeader>
+              <div className="flex justify-center">
+                <Button
+                  onClick={() => {
+                    setSearchQuery(null);
+                    setActiveCategory("All");
+                  }}
+                >
+                  Clear Filters
+                </Button>
+              </div>
+            </Empty>
+          </motion.div>
         ) : (
           <VirtuosoGrid
             useWindowScroll
