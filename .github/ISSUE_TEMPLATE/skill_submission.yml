@@ -24,14 +24,14 @@ body:
       label: Category
       description: "Select the category that best fits this skill."
       options:
-        - Coding Guidelines
-        - Next.js & Frameworks
-        - UI & Component Systems
-        - Styling & Design Tokens
-        - Architecture & Patterns
-        - Performance & Optimization
         - UI & Design UX
         - Testing & Quality
+        - Performance & Optimization
+        - Styling & Design Tokens
+        - UI & Component Systems
+        - Coding Guidelines
+        - Architecture & Patterns
+        - Next.js & Frameworks
         - Other
     validations:
       required: true
