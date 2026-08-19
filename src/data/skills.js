@@ -228,6 +228,39 @@ export const skills = [
     description:
       "Monitors task execution for skill improvement opportunities, capturing patterns and workflow insights during multi-step work.",
   },
+  {
+    id: "deslop",
+    name: "Deslop",
+    category: "Coding Guidelines",
+    source: "cursor/plugins/cursor-team-kit/deslop",
+    copyCommand:
+      "npx skills add https://github.com/cursor/plugins --skill deslop",
+    url: "https://www.skills.sh/cursor/plugins/deslop",
+    description:
+      "Remove AI-generated code slop, unnecessary comments, redundant try/catch blocks, and casts to any.",
+  },
+  {
+    id: "thermo-nuclear-code-quality-review",
+    name: "Thermo-Nuclear Code Quality Review",
+    category: "Testing & Quality",
+    source: "cursor/plugins/cursor-team-kit/thermo-nuclear-code-quality-review",
+    copyCommand:
+      "npx skills add https://github.com/cursor/plugins --skill thermo-nuclear-code-quality-review",
+    url: "https://www.skills.sh/cursor/plugins/thermo-nuclear-code-quality-review",
+    description:
+      "Extremely strict maintainability review focusing on structural simplification, abstraction quality, and spaghetti code prevention.",
+  },
+  {
+    id: "unslop",
+    name: "Unslop",
+    category: "Coding Guidelines",
+    source: "cursor/plugins/pstack/unslop",
+    copyCommand:
+      "npx skills add https://github.com/cursor/plugins --skill unslop",
+    url: "https://www.skills.sh/cursor/plugins/unslop",
+    description:
+      "Cut AI tells and robotic patterns from any writing and code to produce clean, authentic voice.",
+  },
 ];
 
 export const skillCategories = [
