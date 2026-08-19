@@ -261,6 +261,17 @@ export const skills = [
     description:
       "Cut AI tells and robotic patterns from any writing and code to produce clean, authentic voice.",
   },
+  {
+    id: "improve-codebase-architecture",
+    name: "Improve Codebase Architecture",
+    category: "Architecture & Patterns",
+    source: "mattpocock/skills/engineering/improve-codebase-architecture",
+    copyCommand:
+      "npx skills add https://github.com/mattpocock/skills --skill improve-codebase-architecture",
+    url: "https://www.skills.sh/mattpocock/skills/improve-codebase-architecture",
+    description:
+      "Scan a codebase for deepening opportunities, generate an interactive HTML report, and refine architecture through structured grilling.",
+  },
 ];
 
 export const skillCategories = [
