@@ -272,6 +272,17 @@ export const skills = [
     description:
       "Scan a codebase for deepening opportunities, generate an interactive HTML report, and refine architecture through structured grilling.",
   },
+  {
+    id: "humanizer",
+    name: "Humanizer",
+    category: "Coding Guidelines",
+    source: "blader/humanizer/humanizer",
+    copyCommand:
+      "npx skills add https://github.com/blader/humanizer --skill humanizer",
+    url: "https://www.skills.sh/blader/humanizer/humanizer",
+    description:
+      "Rewrite AI-sounding text so it reads naturally without changing meaning, removing robotic patterns and chatbot artifacts.",
+  },
 ];
 
 export const skillCategories = [
